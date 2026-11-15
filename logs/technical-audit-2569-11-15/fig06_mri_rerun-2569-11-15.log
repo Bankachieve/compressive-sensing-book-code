@@ -1,0 +1,28 @@
+   [note] tuned multiplier 1e-06 still lies on the edge of the searched values
+saved fig06-mri
+mri: phantom 256x256, n/m = 4, variable density, k-space noise sigma = 0.004; ADMM run to convergence (Boyd primal/dual residual criterion, eps_rel = 1e-06, eps_abs = 1e-7, residual balancing of rho for the first 1000 iterations, at most 10000 iterations); multipliers tuned on the grid [0.0001, 0.0003, 0.001, 0.003, 0.01, 0.03]
+   zero-filled   PSNR 20.90 dB   normalized error 0.3660   lam_w 0e+00  lam_t 0e+00
+   wavelet       PSNR 27.96 dB   normalized error 0.1625   lam_w 3e-03  lam_t 0e+00   (fixed rho = 0.5, 200 iterations, same multipliers: 25.98 dB)
+   TV            PSNR 52.42 dB   normalized error 0.0097   lam_w 0e+00  lam_t 1e-03   (fixed rho = 0.5, 200 iterations, same multipliers: 35.06 dB)
+   TV + wavelet  PSNR 52.41 dB   normalized error 0.0097   lam_w 1e-06  lam_t 1e-03   (fixed rho = 0.5, 200 iterations, same multipliers: 29.34 dB)
+   TV with fixed rho = 0.5: PSNR after 10 / 50 / 200 iterations: 23.68 / 28.06 / 35.06 dB
+   iterations to convergence over the tuning grid so far: median 1765, max 10000; converged 49/52 solves, iteration cap reached 3
+mri: same budget, three sampling patterns (TV, lambda_t tuned on the grid for each pattern)
+   equispaced        zero-filled 15.11 dB   TV 15.11 dB (lam_t 1e-03)   DC row sampled: True
+   uniform random    zero-filled 15.60 dB   TV 52.44 dB (lam_t 1e-03)   DC row sampled: True
+   variable density  zero-filled 20.90 dB   TV 52.42 dB (lam_t 1e-03)   DC row sampled: True
+mri: textured image, n/m = 4, variable density
+   zero-filled   PSNR 29.29 dB
+   wavelet       PSNR 34.59 dB   lam_w 3e-05  lam_t 0e+00
+   TV            PSNR 39.83 dB   lam_w 0e+00  lam_t 1e-03
+   TV + wavelet  PSNR 39.83 dB   lam_w 3e-05  lam_t 1e-03
+   iterations to convergence over all tuning runs: median 1395, max 10000, runs 122; converged 116/122, iteration cap reached 6
+mri: PSNR (dB) versus acceleration n/m (TV, lambda_t tuned on the grid at every point, ADMM run to convergence)
+   phantom   n/m =          2     3     4     6     8    12
+   phantom   zero-filled 28.2  23.9  20.9  19.3  18.1  16.2
+   phantom   TV          57.8  54.2  52.4  49.9  48.2  44.2
+   textured  n/m =          2     3     4     6     8    12
+   textured  zero-filled 36.5  32.0  29.3  26.8  24.5  18.4
+   textured  TV          47.9  44.5  39.8  37.7  35.1  27.2
+   iterations to convergence over all tuning runs: median 1430, max 10000, runs 195; converged 189/195, iteration cap reached 6
+saved fig06-acceleration

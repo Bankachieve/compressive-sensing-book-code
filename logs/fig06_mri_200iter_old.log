@@ -1,0 +1,37 @@
+coherence: global mu(F,Psi) = 4.000 (n = 256, db4, 4 levels); max over |q| < 0.05 = 4.000; max over |q| > 0.25 = 1.414
+saved fig06-coherence
+   scaling  : peak local coherence 4.00 at |q| = 0.000,  mean over |q| > 0.25 = 0.00
+   level 4  : peak local coherence 3.73 at |q| = 0.043,  mean over |q| > 0.25 = 0.02
+   level 3  : peak local coherence 2.64 at |q| = 0.086,  mean over |q| > 0.25 = 0.08
+   level 2  : peak local coherence 1.87 at |q| = 0.176,  mean over |q| > 0.25 = 0.38
+   level 1  : peak local coherence 1.41 at |q| = 0.500,  mean over |q| > 0.25 = 1.35
+sampling: n = 256, acceleration R = 4 (phase-encode rows kept = 64)
+   equispaced       : peak PSF sidelobe 1.000;  TPSF sidelobe  scaling atom (level 4) 1.000  detail atom, decomposition level 2 1.000  finest detail atom (level 1) 1.000
+   uniform random   : peak PSF sidelobe 0.230;  TPSF sidelobe  scaling atom (level 4) 0.523  detail atom, decomposition level 2 0.237  finest detail atom (level 1) 0.312
+   variable density : peak PSF sidelobe 0.608;  TPSF sidelobe  scaling atom (level 4) 0.162  detail atom, decomposition level 2 0.213  finest detail atom (level 1) 0.587
+saved fig06-sampling
+saved fig06-mri
+mri: phantom 256x256, n/m = 4, variable density, k-space noise sigma = 0.004, 200 ADMM iterations, rho = 0.5
+   zero-filled   PSNR 20.90 dB   normalized error 0.3660   lam_w 0e+00  lam_t 0e+00
+   wavelet       PSNR 27.17 dB   normalized error 0.1778   lam_w 1e-02  lam_t 0e+00
+   TV            PSNR 42.51 dB   normalized error 0.0304   lam_w 0e+00  lam_t 3e-03
+   TV + wavelet  PSNR 38.21 dB   normalized error 0.0499   lam_w 1e-03  lam_t 1e-02
+   TV PSNR after 10 / 50 / 200 iterations: 26.25 / 32.57 / 42.51 dB
+mri: same budget, three sampling patterns (TV, lambda_t tuned on the grid for each pattern)
+   equispaced        zero-filled 15.11 dB   TV 15.11 dB (lam_t 1e-03)   DC row sampled: True
+   uniform random    zero-filled 15.60 dB   TV 39.91 dB (lam_t 1e-02)   DC row sampled: True
+   variable density  zero-filled 20.90 dB   TV 42.51 dB (lam_t 3e-03)   DC row sampled: True
+mri: textured image, n/m = 4, variable density
+   zero-filled   PSNR 29.29 dB
+   wavelet       PSNR 34.65 dB   lam_w 3e-03  lam_t 0e+00
+   TV            PSNR 39.48 dB   lam_w 0e+00  lam_t 3e-03
+   TV + wavelet  PSNR 39.12 dB   lam_w 1e-03  lam_t 3e-03
+mri: PSNR (dB) versus acceleration n/m (TV, lambda_t tuned on the grid at every point)
+   phantom   n/m =          2     3     4     6     8    12
+   phantom   zero-filled 28.2  23.9  20.9  19.3  18.1  16.2
+   phantom   TV          55.7  45.9  42.6  38.1  36.5  33.7
+   textured  n/m =          2     3     4     6     8    12
+   textured  zero-filled 36.5  32.0  29.3  26.8  24.5  18.4
+   textured  TV          47.8  43.8  39.5  37.3  34.6  27.0
+saved fig06-acceleration
+DONE

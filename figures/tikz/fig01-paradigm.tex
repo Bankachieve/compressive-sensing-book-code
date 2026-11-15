@@ -1,0 +1,48 @@
+% ภาพที่ 1.6 กระบวนทัศน์ดั้งเดิมเทียบกับการรับรู้เชิงบีบอัด (แผนภาพ TikZ ต้นฉบับของผู้แต่ง)
+% แถบใต้กล่องแสดงขนาดข้อมูลเชิงเปรียบเทียบ (n = 1.85 ซม., m = 0.85 ซม., k = 0.45 ซม.)
+\begin{tikzpicture}[
+  stp/.style={dg data, minimum height=11mm, text width=19mm, align=center, font=\footnotesize,
+              inner sep=2pt, text=dgInk},
+  cs/.style={stp, draw=dgAccDk, fill=dgFill},
+  lane/.style={font=\small\bfseries, align=center, text=white, inner sep=0pt},
+  dim/.style={font=\scriptsize, text=dgLine, anchor=west, inner sep=1pt},
+  note/.style={font=\scriptsize, text=dgLine, inner sep=0pt},
+]
+% ---- พื้นแถบของสองกระบวนทัศน์และป้ายกำกับ ----
+\fill[dgSlate, rounded corners=6pt] (-0.20,0.95) rectangle (14.15,-1.38);
+\fill[dgFillLt, rounded corners=6pt] (-0.20,-1.60) rectangle (14.15,-3.98);
+\fill[dgLine, rounded corners=4pt] (-0.08,0.82) rectangle (1.00,-1.25);
+\fill[dgAcc, rounded corners=4pt] (-0.08,-1.73) rectangle (1.00,-3.85);
+\node[lane] at (0.44,-0.21) {แบบ\\ดั้งเดิม};
+\node[lane] at (0.44,-2.79) {รับรู้เชิง\\บีบอัด};
+% ---- เส้นแบ่งฝั่งเข้ารหัส/ถอดรหัส ----
+\draw[dgLine, line width=0.6pt, dash pattern=on 2.5pt off 2pt] (11.32,1.42) -- (11.32,-4.03);
+\node[font=\scriptsize\bfseries, text=dgLine, anchor=south east] at (11.20,0.99) {ฝั่งเข้ารหัส};
+\node[font=\scriptsize\bfseries, text=dgLine, anchor=south west] at (11.44,0.99) {ฝั่งถอดรหัส};
+% ---- แถวบน: ชักตัวอย่างแล้วบีบอัด ----
+\node[stp] (a1) at (2.22,0.05) {ชักตัวอย่าง\\ $n$ ค่า};
+\node[stp] (a2) at (4.72,0.05) {แปลง\\ $\mathbf{s} = \boldsymbol{\Psi}^{\mathsf{T}}\mathbf{x}$};
+\node[stp] (a3) at (7.22,0.05) {เก็บ $k$ ค่าเด่น\\ ทิ้งที่เหลือ};
+\node[stp] (a4) at (9.72,0.05) {จัดเก็บ $k$ ค่า\\ พร้อมตำแหน่ง};
+\node[stp, text width=22mm] (a5) at (12.80,0.05) {แปลงกลับ\\ $\hat{\mathbf{x}} = \boldsymbol{\Psi}\mathbf{s}$};
+\foreach \u/\v in {a1/a2, a2/a3, a3/a4, a4/a5} \draw[dg arrow] (\u) -- (\v);
+\foreach \cx/\len/\lab in {2.22/1.85/n, 4.72/1.85/n, 9.72/0.45/k, 12.80/1.85/n} {
+  \fill[dgLine!80] ({\cx-1.02},-0.76) rectangle ++(\len,0.13);
+  \node[dim] at ({\cx-1.02+\len},-0.695) {$\lab$};}
+\fill[dgLine!80] (6.20,-0.76) rectangle ++(0.45,0.13);
+\fill[dgAmbLt, draw=dgAmb, line width=0.35pt, dash pattern=on 1.2pt off 0.8pt] (6.65,-0.76) rectangle ++(1.40,0.13);
+\node[note, text=dgAmb] at (7.35,-1.04) {ส่วนที่ละทิ้ง $n-k$ ค่า};
+% ---- แถวล่าง: รับรู้เชิงบีบอัด ----
+\node[cs, text width=67mm] (b1) at (4.72,-2.45)
+  {วัดโดยตรงเพียง $m \approx C k \log(n/k)$ ค่า\\
+   รวมการชักตัวอย่างกับการบีบอัดเป็นขั้นตอนเดียว};
+\node[cs] (b4) at (9.72,-2.45) {จัดเก็บ\\ $m$ ค่า};
+\node[cs, text width=22mm, fill=dgAcc, text=white] (b5) at (12.80,-2.45) {กู้คืนโดยการ\\ หาค่าเหมาะที่สุด};
+\draw[dg arrow] (b1) -- (b4); \draw[dg arrow] (b4) -- (b5);
+\foreach \cx/\len/\lab in {2.22/0.85/m, 9.72/0.85/m, 12.80/1.85/n} {
+  \fill[dgAcc!85] ({\cx-1.02},-3.26) rectangle ++(\len,0.13);
+  \node[dim] at ({\cx-1.02+\len},-3.195) {$\lab$};}
+\node[note] at (4.72,-3.62) {ภาระการคำนวณต่ำที่ตัววัด};
+\node[note] at (9.72,-3.62) {ไม่ต้องทราบตำแหน่งค่าเด่น};
+\node[note] at (12.80,-3.62) {ภาระการคำนวณสูง};
+\end{tikzpicture}

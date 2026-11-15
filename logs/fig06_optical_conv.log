@@ -1,0 +1,39 @@
+optical: single-pixel camera, image 64x64 (n = 4096), sparsity basis db4 (level 3)
+     noiseless: basis pursuit in the wavelet domain, solved exactly (m <= 1024: LP by HiGHS interior point; m > 1024: ADMM to relative duality gap 1e-06)
+   m/n = 0.10  Bernoulli            PSNR per trial  17.88  16.11  15.69
+   m/n = 0.10  Hadamard             PSNR per trial  11.74   9.44   9.53
+   m/n = 0.10  Hadamard, no DC row  PSNR per trial   5.35   5.55   5.46
+   m/n = 0.20  Bernoulli            PSNR per trial  25.12  25.88  24.89
+   m/n = 0.20  Hadamard             PSNR per trial   7.77  15.05  10.78
+   m/n = 0.20  Hadamard, no DC row  PSNR per trial   5.46   5.67   5.55
+   [warning] m/n = 0.30 Hadamard trial 0: ADMM stopped with relative gap 1.6e-06
+   [warning] m/n = 0.30 Hadamard trial 1: ADMM stopped with relative gap 1.5e-06
+   [warning] m/n = 0.30 Hadamard, no DC row trial 1: ADMM stopped with relative gap 3.7e-06
+   [warning] m/n = 0.30 Hadamard, no DC row trial 2: ADMM stopped with relative gap 1.9e-06
+   m/n = 0.30  Bernoulli            PSNR per trial  28.37  28.06  28.34
+   m/n = 0.30  Hadamard             PSNR per trial  12.41  24.36  24.62
+   m/n = 0.30  Hadamard, no DC row  PSNR per trial   6.23   6.26   5.47
+   [warning] m/n = 0.45 Hadamard, no DC row trial 0: ADMM stopped with relative gap 1.4e-06
+   m/n = 0.45  Bernoulli            PSNR per trial  31.93  33.00  31.86
+   m/n = 0.45  Hadamard             PSNR per trial  24.17  25.59  28.07
+   m/n = 0.45  Hadamard, no DC row  PSNR per trial   6.35   5.66   6.30
+   [warning] m/n = 0.60 Hadamard, no DC row trial 1: ADMM stopped with relative gap 1.2e-06
+   m/n = 0.60  Bernoulli            PSNR per trial  35.95  35.98  35.63
+   m/n = 0.60  Hadamard             PSNR per trial  31.73  31.60  30.68
+   m/n = 0.60  Hadamard, no DC row  PSNR per trial   6.41   6.41   6.33
+   Bernoulli            mean PSNR (dB) at m/n = 0.10: 16.56 0.20: 25.29 0.30: 28.26 0.45: 32.27 0.60: 35.85
+   Hadamard             mean PSNR (dB) at m/n = 0.10: 10.23 0.20: 11.20 0.30: 20.46 0.45: 25.94 0.60: 31.34
+   Hadamard, no DC row  mean PSNR (dB) at m/n = 0.10:  5.45 0.20:  5.56 0.30:  5.99 0.45:  6.11 0.60:  6.39
+   ADMM iterations (m > 1024): median 69530, max 100000 (27 solves); largest relative residual ||A c - y|| / ||y|| = 3.5e-11
+optical: noise folding, m = 1433 (0.35n) measurements, same detector noise per measurement (solved to gap 1e-06)
+   sigma 1.0e-04: multiplexed 30.49 dB   direct pixel sampling 26.39 dB   gain +4.09 dB
+   sigma 3.0e-04: multiplexed 30.49 dB   direct pixel sampling 26.40 dB   gain +4.08 dB
+   sigma 1.0e-03: multiplexed 30.49 dB   direct pixel sampling 26.59 dB   gain +3.90 dB
+   sigma 3.0e-03: multiplexed 30.48 dB   direct pixel sampling 26.37 dB   gain +4.11 dB
+   sigma 1.0e-02: multiplexed 30.50 dB   direct pixel sampling 24.72 dB   gain +5.79 dB
+   sigma 3.0e-02: multiplexed 30.51 dB   direct pixel sampling 19.70 dB   gain +10.81 dB
+   solver iterations: median 1075, max 3120 (12 solves)
+optical: CASSI, cube 32x32x16 (N = 16384); each snapshot gives 1504 detector pixels
+     LASSO and group LASSO solved by ADMM (block-diagonal A A^T) to relative duality gap 1e-06; lambda tuned on a 1-3-10 grid with edge extension (oracle)
+   [warning] solution not certified: relative gap 1.3e-05 (lambda 3e-04)
+   K = 1: compression 0.092  separable l1  best lambda 3e-02  PSNR 15.53 dB

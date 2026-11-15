@@ -1,0 +1,38 @@
+% ภาพที่ 4.2 ตระกูลขั้นตอนวิธีกู้คืนสัญญาณเบาบาง (แผนภาพ TikZ ต้นฉบับของผู้แต่ง)
+% การ์ดหัวน้ำเงิน = ตระกูลที่พัฒนาในบทนี้; การ์ดหัวเทา = ตระกูลที่อยู่นอกแกนของบท
+% \algocard{ชื่อโหนด}{x}{สีหัว}{สีขอบ}{ชื่อตระกูล}{ขั้นตอนวิธี}{พจน์เบาบาง}{ต้นทุน}{ป้ายหัวข้อ}
+\begin{tikzpicture}[
+  hd/.style={font=\footnotesize\bfseries, text=white, align=center, inner sep=0pt},
+  bd/.style={font=\footnotesize, text=dgInk, align=center, inner sep=0pt},
+  attr/.style={font=\scriptsize, text=dgLine, align=center, inner sep=0pt},
+]
+\newcommand{\algocard}[9]{%
+  \begin{scope}[shift={(#2,0)}]
+    \path[fill=white, draw=#4, line width=0.6pt, rounded corners=3pt] (-1.30,0) rectangle (1.30,-3.55);
+    \begin{scope}
+      \clip[rounded corners=3pt] (-1.30,0) rectangle (1.30,-3.55);
+      \fill[#3] (-1.30,0) rectangle (1.30,-1.05);
+      \fill[dgSlate] (-1.30,-2.15) rectangle (1.30,-3.55);
+    \end{scope}
+    \path[draw=#4, line width=0.6pt, rounded corners=3pt] (-1.30,0) rectangle (1.30,-3.55);
+    \node[hd] at (0,-0.525) {#5};
+    \node[bd] at (0,-1.60) {#6};
+    \node[attr] at (0,-2.50) {#7};
+    \node[attr, text=dgInk] at (0,-2.97) {#8};
+    \node[dg badge] at (0,-3.55) {#9};
+    \coordinate (#1) at (0,0);
+  \end{scope}}
+% ---- รากของแผนภาพ ----
+\node[draw=dgInk!80, fill=dgInk!88, rounded corners=3pt, text=white, font=\small\bfseries,
+      minimum height=9mm, minimum width=62mm, inner sep=0pt] (root) at (7.00,1.75) {ปัญหาการกู้คืนสัญญาณเบาบาง};
+% ---- การ์ดของห้าตระกูล ----
+\algocard{lp}{1.40}{dgLine}{dgLine!80}{กำหนดการ\\[-1pt]เชิงเส้น}{วิธีจุดภายใน}{$\ell_1$ คอนเวกซ์}{$O(n^3)$ แม่นยำสูง}{หัวข้อ \ref{sec:bp}}
+\algocard{fo}{4.20}{dgAcc}{dgAccDk}{ขั้นตอนวิธี\\[-1pt]อันดับหนึ่ง}{ISTA\\[-1pt] FISTA}{$\ell_1$ คอนเวกซ์}{$O(mn)$ ต่อรอบ}{หัวข้อ \ref{sec:lasso}}
+\algocard{sp}{7.00}{dgAcc}{dgAccDk}{วิธี\\[-1pt]แยกตัวแปร}{ADMM\\[-1pt] split Bregman}{$\ell_1$ มีเงื่อนไขบังคับ}{$O(mn)$ ต่อรอบ}{หัวข้อ \ref{sec:admm}}
+\algocard{rw}{9.80}{dgAcc}{dgAccDk}{วิธี\\[-1pt]ถ่วงน้ำหนักซ้ำ}{IRLS\\[-1pt] FOCUSS}{$\ell_p$,\ \ $0 < p \leq 1$}{$O(m^2 n)$ ต่อรอบ}{หัวข้อ \ref{sec:irls}--\ref{sec:fractional}}
+\algocard{gr}{12.60}{dgLine}{dgLine!80}{ละโมบและขีดเริ่ม\\[-1pt]เปลี่ยนแบบแข็ง}{OMP, CoSaMP\\[-1pt] IHT}{$\ell_0$ โดยตรง}{$O(kmn)$}{บทที่ \ref{ch:greedy}}
+% ---- เส้นเชื่อมแบบแผนภูมิต้นไม้ ----
+\draw[dgInk!85, line width=0.85pt] (root.south) -- (7.00,0.70);
+\draw[dgInk!85, line width=0.85pt, rounded corners=2pt] (1.40,0.70) -- (12.60,0.70);
+\foreach \c in {lp, fo, sp, rw, gr} \draw[dg arrow, rounded corners=2pt] (\c |- 0,0.70) -- (\c);
+\end{tikzpicture}

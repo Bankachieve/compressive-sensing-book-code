@@ -1,0 +1,31 @@
+coherence: global mu(F,Psi) = 4.000 (n = 256, db4, 4 levels); max over |q| < 0.05 = 4.000; max over |q| > 0.25 = 1.414
+saved fig06-coherence
+   scaling  : peak local coherence 4.00 at |q| = 0.000,  mean over |q| > 0.25 = 0.00
+   level 4  : peak local coherence 3.73 at |q| = 0.043,  mean over |q| > 0.25 = 0.02
+   level 3  : peak local coherence 2.64 at |q| = 0.086,  mean over |q| > 0.25 = 0.08
+   level 2  : peak local coherence 1.87 at |q| = 0.176,  mean over |q| > 0.25 = 0.38
+   level 1  : peak local coherence 1.41 at |q| = 0.500,  mean over |q| > 0.25 = 1.35
+sampling: n = 256, acceleration R = 4 (phase-encode rows kept = 64)
+   equispaced       : peak PSF sidelobe 1.000;  TPSF sidelobe  scaling atom (level 4) 1.000  detail atom, decomposition level 2 1.000  finest detail atom (level 1) 1.000
+   uniform random   : peak PSF sidelobe 0.230;  TPSF sidelobe  scaling atom (level 4) 0.523  detail atom, decomposition level 2 0.237  finest detail atom (level 1) 0.312
+   variable density : peak PSF sidelobe 0.608;  TPSF sidelobe  scaling atom (level 4) 0.162  detail atom, decomposition level 2 0.213  finest detail atom (level 1) 0.587
+saved fig06-sampling
+   [note] tuned multiplier 1e-06 still lies on the edge of the searched values
+saved fig06-mri
+mri: phantom 256x256, n/m = 4, variable density, k-space noise sigma = 0.004; ADMM run to convergence (Boyd primal/dual residual criterion, eps_rel = 1e-06, eps_abs = 1e-7, residual balancing of rho for the first 1000 iterations, at most 10000 iterations); multipliers tuned on the grid [0.0001, 0.0003, 0.001, 0.003, 0.01, 0.03]
+   zero-filled   PSNR 20.90 dB   normalized error 0.3660   lam_w 0e+00  lam_t 0e+00
+   wavelet       PSNR 27.96 dB   normalized error 0.1625   lam_w 3e-03  lam_t 0e+00   (fixed rho = 0.5, 200 iterations, same multipliers: 25.98 dB)
+   TV            PSNR 52.42 dB   normalized error 0.0097   lam_w 0e+00  lam_t 1e-03   (fixed rho = 0.5, 200 iterations, same multipliers: 35.06 dB)
+   TV + wavelet  PSNR 52.41 dB   normalized error 0.0097   lam_w 1e-06  lam_t 1e-03   (fixed rho = 0.5, 200 iterations, same multipliers: 29.34 dB)
+   TV with fixed rho = 0.5: PSNR after 10 / 50 / 200 iterations: 23.68 / 28.06 / 35.06 dB
+   iterations to convergence over the tuning grid so far: median 1805, max 10000
+mri: same budget, three sampling patterns (TV, lambda_t tuned on the grid for each pattern)
+   equispaced        zero-filled 15.11 dB   TV 15.11 dB (lam_t 1e-03)   DC row sampled: True
+   uniform random    zero-filled 15.60 dB   TV 52.44 dB (lam_t 1e-03)   DC row sampled: True
+   variable density  zero-filled 20.90 dB   TV 52.42 dB (lam_t 1e-03)   DC row sampled: True
+mri: textured image, n/m = 4, variable density
+   zero-filled   PSNR 29.29 dB
+   wavelet       PSNR 34.59 dB   lam_w 3e-05  lam_t 0e+00
+   TV            PSNR 39.83 dB   lam_w 0e+00  lam_t 1e-03
+   TV + wavelet  PSNR 39.83 dB   lam_w 3e-05  lam_t 1e-03
+   iterations to convergence over all tuning runs: median 1395, max 10000, runs 122

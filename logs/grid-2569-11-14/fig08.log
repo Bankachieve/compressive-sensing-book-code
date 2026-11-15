@@ -1,0 +1,70 @@
+gridless: n = 64, k = 5, minimum separation 0.0667 = 1/floor((n-1)/4), m = 32 random samples, noiseless
+   true frequencies      [0.1594 0.2802 0.6433 0.7661 0.9328]
+   ANM (ESPRIT on Toep)  [0.1594 0.2802 0.6433 0.7661 0.9328]   max error 8.63e-11   SDP time 7.5 s
+   OMP grid r=1          [0.1562 0.2812 0.6406 0.7656 0.9375]
+   OMP grid r=4          [0.1602 0.2812 0.6445 0.7656 0.9336]
+   ANM      NMSE of full signal  -164.0 dB
+   OMP r=1  NMSE of full signal   -11.0 dB
+   OMP r=4  NMSE of full signal   -18.7 dB
+   ... m = 12 done (237 s)
+   ... m = 16 done (398 s)
+   ... m = 20 done (527 s)
+   ... m = 24 done (594 s)
+   ... m = 32 done (652 s)
+   ... m = 40 done (708 s)
+gridless: NMSE (median over 15 trials, dB) and success rate (NMSE < -40 dB) versus m   [708 s]
+   m               12     16     20     24     32     40
+   ANM           -2.8  -12.8 -162.1 -164.5 -170.5 -173.4   | 0.00 0.33 0.80 1.00 1.00 1.00
+   OMP r=1        0.4   -1.8   -2.0   -6.9   -6.0   -6.5   | 0.00 0.00 0.00 0.00 0.00 0.00
+   OMP r=4       -0.9   -8.7  -12.5  -12.3  -15.9  -15.4   | 0.00 0.00 0.00 0.00 0.00 0.00
+   OMP r=16       0.8   -9.9  -12.8  -15.0  -18.0  -19.2   | 0.00 0.00 0.00 0.00 0.00 0.00
+saved fig08-gridless
+onebit: n = 256, k = 8, Gaussian Phi, ||x||_2 = 1, noiseless sign measurements, 100 trials   [63 s]
+   m/n                0.5     1.0     2.0     4.0     8.0    16.0
+   passive  error   0.6509  0.4404  0.2979  0.1887  0.1254  0.0768
+   BIHT     error   0.3229  0.1297  0.0524  0.0183  0.0092  0.0040
+   log-log slope for m/n >= 2: passive -0.65 (theory -0.5), BIHT -1.22
+onebit: fixed budget B = 1024 bits (B/n = 4), b bits per measurement so m = B/b, uniform quantizer on [-3, 3]   [32 s]
+   b                       1       2       3       4       6       8
+   m                    1024     512     341     256     170     128
+   SNR 40 dB error   0.0220  0.0823  0.0473  0.0266  0.0142  0.0209   best b = 6
+   SNR 10 dB error   0.0979  0.1063  0.0966  0.1018  0.1433  0.1985   best b = 3
+saved fig08-onebit
+pnp: 128x128 images, n/m = 4, variable-density rows, k-space noise sigma = 0.004; all parameters tuned on a grid (oracle)
+     denoiser: non-local means (scikit-image, patch 5, distance 6, h = 0.8 sigma); rho = 1; 100 iterations; wavelet and TV baselines solved to convergence (ch. 6 criterion)
+     PnP-fixed: sigma_t = sigma_d constant; PnP-cont.: sigma_t = max(sigma_d, 0.2 x 0.85^t)
+   phantom   zero-filled 19.57  wavelet 23.97 (lam_w 3e-03)  TV 42.79 (lam_t 3e-04)  PnP-fixed 32.92 (sigma_d 0.04)  PnP-cont. 32.96 dB (sigma_end 0.04)
+   phantom   PSNR after 10 / 20 / 50 / 100 iterations: fixed 27.63 / 29.35 / 31.20 / 32.92;  cont. 26.64 / 29.17 / 31.27 / 32.96
+   phantom   relative change of x at the last iteration: fixed 6.1e-04, cont. 5.7e-04
+   check at lam_t = 3e-03: PnP with prox_(lam_t TV), 800 iterations 39.26 dB vs converged TV-ADMM (5380 iterations, eps_rel 1e-7) 39.32 dB (TV-ADMM with fixed rho = 0.5, 200 iterations 35.06 dB), ||difference|| / ||image|| = 7.6e-04
+   textured  zero-filled 28.96  wavelet 31.95 (lam_w 1e-05)  TV 37.96 (lam_t 3e-04)  PnP-fixed 34.50 (sigma_d 0.02)  PnP-cont. 34.75 dB (sigma_end 0.01)
+   textured  PSNR after 10 / 20 / 50 / 100 iterations: fixed 33.39 / 33.97 / 34.39 / 34.50;  cont. 31.55 / 34.73 / 34.91 / 34.75
+   textured  relative change of x at the last iteration: fixed 8.5e-05, cont. 1.7e-04
+   [342 s]
+saved fig08-pnp
+unroll: n = 200, m = 100, Gaussian Phi with unit-norm columns, Bernoulli-Gaussian x (p = 0.1), SNR 40 dB, T = 16 layers
+   closed-form W: max |diag(W^T Phi) - 1| = 7.8e-16; ||W^T Phi||_F^2 = 402.01 (projected gradient 402.01, ||W - W_pg||/||W|| = 2.7e-15)
+   leverage scores l_i = (Phi^+ Phi)_ii: mean 0.500 (m/n = 0.500), min 0.409, max 0.596
+   generalized coherence max_(i!=j) |w_i^T phi_j|: W = Phi 0.405, W = closed form 0.311
+   tuned on validation at T = 16: ISTA lambda 0.2, FISTA lambda 0.2, STA-MPI gamma_h 0.8
+   ISTA run to 1000 iterations (lambda tuned separately on validation: 0.02): -7.2 dB after 100, -27.8 dB after 1000 iterations
+   training: Adam, batch 256, 3000 steps each, fresh samples every step; ALISTA 161 s (32 parameters), LISTA-CP 201 s (320016 parameters)
+   learned ALISTA step sizes gamma_t: [0.784 3.168 0.649 2.293 0.518 2.044 1.261 1.113 1.461 0.627 1.618 0.702
+ 1.673 0.523 1.54  1.194]
+   learned ALISTA thresholds theta_t: [0.4989 1.2405 0.106  0.2545 0.0466 0.158  0.0702 0.0537 0.0536 0.0226
+ 0.0472 0.0172 0.0337 0.0089 0.022  0.0103]
+   NMSE (dB) on test set at layer t = 1, 2, 4, 8, 12, 16
+   ISTA         -1.2    -1.9    -2.8    -4.1    -5.2    -6.1
+   FISTA        -1.2    -1.9    -3.2    -5.7    -8.4   -10.5
+   STA-MPI       0.0    -0.3    -1.5    -5.5   -10.2   -14.1
+   ALISTA       -4.2    -9.6   -15.3   -20.4   -23.3   -25.1
+   LISTA-CP     -4.0    -7.1   -11.1   -16.2   -19.7   -22.2
+   distribution shift: NMSE (dB) at T = 16 when the test sparsity p differs from training p = 0.10
+   p                 0.05    0.10    0.15    0.20    0.25
+   ISTA (1000 it.)  -32.3   -26.6   -17.8   -11.6    -8.2
+   FISTA            -13.8   -10.4    -7.9    -6.3    -5.3
+   STA-MPI          -18.6   -13.9   -10.6    -8.5    -6.9
+   ALISTA           -37.7   -24.0   -15.0   -10.2    -7.4
+   LISTA-CP         -33.4   -21.4   -13.0    -8.3    -5.3
+saved fig08-unroll
+DONE

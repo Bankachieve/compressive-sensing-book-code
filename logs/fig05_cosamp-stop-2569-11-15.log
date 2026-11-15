@@ -1,0 +1,7 @@
+cosamp-stop: m, n, k = 12, 20, 3, seed 85
+   iteration 1: support [3, 5, 17]  relative error 1.074e+00
+   iteration 2: support [3, 5, 17]  relative error 9.900e-01
+   iteration 3: support [3, 5, 16]  relative error 2.823e-01
+   iteration 4: support [3, 10, 16]  relative error 7.784e-16
+   iteration 5: support [3, 10, 16]  relative error 7.252e-16
+   cosamp() with iterate/residual stopping: relative error 7.784e-16

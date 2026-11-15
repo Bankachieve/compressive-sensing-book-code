@@ -1,0 +1,55 @@
+% ภาพที่ 1.9 โครงสร้างและความสัมพันธ์ระหว่างบท (แผนภาพ TikZ ต้นฉบับของผู้แต่ง)
+% บทแรเงา = แกนทฤษฎีและขั้นตอนวิธี; เส้นทึบ = ลำดับการอ่านหลัก; เส้นประ = การอ้างอิงข้ามสาย
+\begin{tikzpicture}[
+  ch/.style={dg data, minimum height=10mm, minimum width=45mm, inner sep=0pt},
+  core/.style={ch, draw=dgAccDk, fill=dgFill},
+  num/.style={circle, fill=dgInk!80, text=white, font=\footnotesize\bfseries, minimum size=6.2mm, inner sep=0pt},
+  numc/.style={num, fill=dgAcc},
+  cht/.style={font=\small, text=dgInk, anchor=west, align=left, inner sep=0pt},
+  part/.style={font=\footnotesize\bfseries, text=dgLine, anchor=east, align=right, inner sep=0pt},
+  parts/.style={font=\scriptsize, text=dgLine, anchor=north east, align=right, inner sep=0pt},
+]
+% ---- แถบของสี่ส่วน ----
+\fill[dgSlate,  rounded corners=6pt] (-0.20, 0.78) rectangle (14.15,-2.18);
+\fill[dgFillLt, rounded corners=6pt] (-0.20,-2.34) rectangle (14.15,-3.62);
+\fill[dgFillLt, rounded corners=6pt] (-0.20,-3.78) rectangle (14.15,-5.06);
+\fill[dgSlate,  rounded corners=6pt] (-0.20,-5.22) rectangle (14.15,-8.18);
+\node[part] at (13.98, 0.52) {ส่วนที่ 1};  \node[parts] at (13.98, 0.30) {บริบทและรากฐาน};
+\node[part] at (13.98,-2.60) {ส่วนที่ 2};  \node[parts] at (13.98,-2.82) {ทฤษฎี};
+\node[part] at (13.98,-4.04) {ส่วนที่ 3};  \node[parts] at (13.98,-4.26) {ขั้นตอนวิธี};
+\node[part] at (13.98,-5.48) {ส่วนที่ 4};  \node[parts] at (13.98,-5.70) {การประยุกต์กับ\\ พรมแดนความรู้};
+% ---- กล่องบท: \chbox{ชื่อโหนด}{x}{y}{สไตล์}{สไตล์เลข}{เลขบท}{ชื่อบท} ----
+\newcommand{\chbox}[7]{%
+  \node[#4] (#1) at (#2,#3) {};
+  \node[#5] at ($(#1.west)+(0.42,0)$) {#6};
+  \node[cht] at ($(#1.west)+(0.86,0)$) {#7};}
+\chbox{c1}{6.00}{ 0.05}{ch}{num}{1}{บทนำ}
+\chbox{c2}{6.00}{-1.43}{ch}{num}{2}{คณิตศาสตร์พื้นฐาน}
+\chbox{c3}{6.00}{-2.98}{core}{numc}{3}{ทฤษฎีการกู้คืน}
+\chbox{c4}{3.10}{-4.42}{core}{numc}{4}{การหาค่าเหมาะที่สุด}
+\chbox{c5}{8.90}{-4.42}{core}{numc}{5}{ละโมบและขีดเริ่มเปลี่ยน}
+\chbox{c6}{3.10}{-5.98}{ch}{num}{6}{ภาพและภาพทางการแพทย์}
+\chbox{c7}{8.90}{-5.98}{ch}{num}{7}{การสื่อสารและไฟฟ้ากำลัง}
+\node[ch, minimum width=72mm] (c8) at (6.00,-7.48) {};
+\node[num] at ($(c8.west)+(0.42,0)$) {8};
+\node[cht] at ($(c8.west)+(0.86,0)$) {นอกกริด หนึ่งบิต และการเรียนรู้เชิงลึก};
+% ---- ลูกศรลำดับการอ่านหลัก ----
+\draw[dg arrow] (c1) -- (c2);
+\draw[dg arrow] (c2) -- (c3);
+\draw[dg arrow] (c3.south) -- ++(0,-0.25) -| (c4.north);
+\draw[dg arrow] (c3.south) -- ++(0,-0.25) -| (c5.north);
+\draw[dg arrow] (c4) -- (c6);
+\draw[dg arrow] (c5) -- (c7);
+\draw[dg arrow] (c6.south) -- (c6.south |- c8.north);
+\draw[dg arrow] (c7.south) -- (c7.south |- c8.north);
+% ---- ลูกศรอ้างอิงข้ามสาย ----
+\draw[dg xarrow] (c4.south east) ++(-0.35,0) -- ($(c7.north west)+(0.35,0)$);
+\draw[dg xarrow] (c5.south west) ++(0.35,0) -- ($(c6.north east)+(-0.35,0)$);
+% ---- คำอธิบายสัญลักษณ์ ----
+\draw[dg arrow] (0.00,-8.55) -- ++(0.70,0);
+\node[font=\scriptsize, text=dgLine, anchor=west] at (0.80,-8.55) {ลำดับการอ่านหลัก};
+\draw[dg xarrow] (3.40,-8.55) -- ++(0.70,0);
+\node[font=\scriptsize, text=dgLine, anchor=west] at (4.20,-8.55) {การอ้างอิงข้ามสาย};
+\draw[draw=dgAccDk, fill=dgFill, rounded corners=1.5pt] (6.90,-8.67) rectangle ++(0.50,0.24);
+\node[font=\scriptsize, text=dgLine, anchor=west] at (7.50,-8.55) {แกนทฤษฎีและขั้นตอนวิธี};
+\end{tikzpicture}

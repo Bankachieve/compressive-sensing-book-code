@@ -1,0 +1,13 @@
+optical: CASSI, cube 32x32x16 (N = 16384); each snapshot gives 1504 detector pixels
+     LASSO and group LASSO solved by ADMM (block-diagonal A A^T) to relative duality gap 1e-06; lambda on the 1-3-10 grid 3e-4 ... 1e-1 by continuation with warm starts, uncertified solutions excluded (oracle)
+   [warning] solution not certified: relative gap 3.8e-06 (lambda 1e-05)
+   [note] CASSI K = 8 separable l1: best certified lambda 3e-05 is the smallest certified value; uncertified: 1e-05
+   K = 8: compression 0.734  separable l1  best lambda 3e-05  PSNR 38.70 dB  (relative gap 9.6e-07)   PSNR [gap] per lambda: 1e-05: 38.68 [4e-06]  3e-05: 38.70 [1e-06]  1e-04: 38.69 [1e-06]  3e-04: 38.60 [1e-06]  1e-03: 38.41 [9e-07]  3e-03: 38.07 [9e-07]  1e-02: 37.27 [8e-07]  3e-02: 35.69 [9e-07]  1e-01: 32.58 [8e-07]
+   [warning] solution not certified: relative gap 2.2e-06 (lambda 3e-05)
+   [note] CASSI K = 8 joint l2,1: best certified lambda 1e-04 is the smallest certified value; uncertified: 3e-05
+   K = 8: compression 0.734  joint l2,1    best lambda 1e-04  PSNR 36.99 dB  (relative gap 9.8e-07)   PSNR [gap] per lambda: 3e-05: 36.99 [2e-06]  1e-04: 36.99 [1e-06]  3e-04: 36.99 [1e-06]  1e-03: 36.98 [1e-06]  3e-03: 36.93 [9e-07]  1e-02: 36.71 [8e-07]  3e-02: 36.09 [7e-07]  1e-01: 34.32 [7e-07]
+   solver iterations: median 1010, max 150000 (17 solves)
+
+real	41m5.994s
+user	40m50.172s
+sys	0m0.131s

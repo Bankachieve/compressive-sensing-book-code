@@ -1,0 +1,20 @@
+irls: textured image at five resolutions, m = 0.45n Gaussian measurements, sparsity basis db4; FISTA 600 iterations (lambda = 0.001), IHT 600 iterations, IRLS-DR 100 iterations (p = 0.9, xi = 1e-6)
+/usr/local/lib/python3.13/site-packages/pywt/_multilevel.py:43: UserWarning: Level value of 3 is too high: all coefficients will experience boundary effects.
+  warnings.warn(
+   32x32 (n =  1024, m =  460, k99 =   49; IRLS-DR build 0.40 s, 0.020 s/iteration): FISTA 0.1020 /    0.47 s   IHT 0.1336 /    0.46 s   IRLS-DR 0.1097 /    2.36 s   
+   40x40 (n =  1600, m =  720, k99 =   55; IRLS-DR build 0.92 s, 0.059 s/iteration): FISTA 0.0800 /    0.99 s   IHT 0.1191 /    0.73 s   IRLS-DR 0.0885 /    6.78 s   
+   48x48 (n =  2304, m = 1036, k99 =   91; IRLS-DR build 2.42 s, 0.172 s/iteration): FISTA 0.0773 /    1.32 s   IHT 0.1222 /    1.31 s   IRLS-DR 0.0838 /   19.59 s   
+   56x56 (n =  3136, m = 1411, k99 =   61; IRLS-DR build 5.26 s, 0.432 s/iteration): FISTA 0.0499 /    2.24 s   IHT 0.1104 /    2.12 s   IRLS-DR 0.0582 /   48.45 s   
+   64x64 (n =  4096, m = 1843, k99 =   62; IRLS-DR build 13.89 s, 0.903 s/iteration): FISTA 0.0438 /    4.05 s   IHT 0.1063 /    4.06 s   IRLS-DR 0.0484 /  104.19 s   
+irls: tuning at the largest size (64x64), same measurements
+   IRLS-DR p = 0.5: normalized error 0.0853 (30 it), 0.0854 (100 it), 0.0854 (200 it)
+   IRLS-DR p = 0.8: normalized error 0.0576 (30 it), 0.0574 (100 it), 0.0574 (200 it)
+   IRLS-DR p = 0.9: normalized error 0.0493 (30 it), 0.0484 (100 it), 0.0484 (200 it)
+   IRLS-DR p = 1.0: normalized error 0.0461 (30 it), 0.0447 (100 it), 0.0444 (200 it)
+   FISTA lambda = 3e-04: normalized error 0.0523 (600 it), 0.0441 (2000 it)
+   FISTA lambda = 1e-03: normalized error 0.0438 (600 it), 0.0440 (2000 it)
+   FISTA lambda = 3e-03: normalized error 0.0439 (600 it), 0.0439 (2000 it)
+   fitted cost exponent (time ~ n^beta): FISTA beta = 1.48, IRLS-DR beta = 2.76  (theory: FISTA O(mn) -> beta 2, IRLS-DR O(m^2 n) -> beta 3)
+   extrapolating the measured IRLS-DR time by the O(m^2 n) law to the image of the author's paper (153x143, m = 10940, 100 iterations): 5.4 h (the paper reports 22,890 s = 6.4 h)
+saved fig06-irls
+DONE

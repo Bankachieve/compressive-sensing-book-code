@@ -1,0 +1,13 @@
+# ไลบรารีและเวอร์ชันที่ใช้สร้างภาพและผลเชิงตัวเลขทั้งหมดในหนังสือ (Python 3.13)
+# ติดตั้งด้วย:  python -m pip install -r requirements.txt
+numpy==2.5.3
+scipy==1.18.1
+matplotlib==3.11.2
+PyWavelets==1.8.0        # import pywt (บทที่ 6)
+scikit-image==0.26.0     # import skimage (บทที่ 6 และ 8)
+cvxpy==1.9.3             # บทที่ 7 และ 8
+scs==3.3.1               # ตัวแก้ SDP ผ่าน CVXPY (บทที่ 8)
+clarabel==0.11.1         # ตัวแก้เริ่มต้นของ CVXPY
+osqp==1.1.3
+autograd==1.9.1          # การฝึก LISTA/ALISTA (บทที่ 8)
+PYPOWER==5.1.21          # ระบบทดสอบ 9 และ 14 บัส (บทที่ 7)

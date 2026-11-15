@@ -1,0 +1,15 @@
+selected-check mriacc: lambda_t re-tuned on the grid at every acceleration (as in fig06_generate.py mriacc)
+   phantom   n/m =  2: TV  57.8 dB, lam_t 1e-03, iterations   390, converged True
+   phantom   n/m =  3: TV  54.2 dB, lam_t 1e-03, iterations   730, converged True
+   phantom   n/m =  4: TV  52.4 dB, lam_t 1e-03, iterations  1160, converged True
+   phantom   n/m =  6: TV  49.9 dB, lam_t 3e-04, iterations  1880, converged True
+   phantom   n/m =  8: TV  48.2 dB, lam_t 3e-04, iterations  2230, converged True
+   phantom   n/m = 12: TV  44.2 dB, lam_t 3e-04, iterations  2610, converged True
+   textured  n/m =  2: TV  47.9 dB, lam_t 1e-03, iterations   360, converged True
+   textured  n/m =  3: TV  44.5 dB, lam_t 1e-03, iterations   600, converged True
+   textured  n/m =  4: TV  39.8 dB, lam_t 1e-03, iterations   690, converged True
+   textured  n/m =  6: TV  37.7 dB, lam_t 3e-04, iterations  1270, converged True
+   textured  n/m =  8: TV  35.1 dB, lam_t 1e-04, iterations  2540, converged True
+   textured  n/m = 12: TV  27.2 dB, lam_t 1e-03, iterations  1000, converged True
+   selected solves: 12, converged 12, max iterations 2610; all tuning solves: 73, converged 73, median iterations 1560, max 5190
+EXIT 0

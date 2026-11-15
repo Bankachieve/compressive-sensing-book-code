@@ -1,0 +1,39 @@
+channel: N = 256 subcarriers, L = 64 taps, k = 6 paths on the delay grid, SNR 20.0 dB, 300 trials
+   LS     NMSE (dB) at P = 12:   nan 16:   nan 20:   nan 24:   nan 32:   nan 48:   nan 64: -19.7 96: -21.4 128: -22.7
+   OMP    NMSE (dB) at P = 12:  -5.8 16: -15.5 20: -21.6 24: -24.0 32: -25.8 48: -28.1 64: -29.4 96: -31.7 128: -32.5
+   oracle NMSE (dB) at P = 12: -21.0 16: -23.0 20: -23.8 24: -25.1 32: -26.7 48: -28.7 64: -30.1 96: -31.9 128: -33.3
+   theory for LS with equispaced pilots: NMSE = L/P x 1/SNR -> 64: -20.0 96: -21.8 128: -23.0
+channel: basis mismatch, P = 32 random pilots, OMP with delay grid refined by factor r
+   on-grid   NMSE (dB) at r = 1: -26.0 2: -24.9 4: -20.1 8: -17.5 16: -16.6
+   off-grid  NMSE (dB) at r = 1:  -7.0 2: -12.4 4: -15.5 8: -16.3 16: -17.1
+   coherence of neighbouring atoms (full band) at r = 1:0.000 2:0.637 4:0.900 8:0.974 16:0.994
+saved fig07-channel
+spectrum: L = 64 spectral cells, K = 6 occupied, T = 20 columns, SNR 20.0 dB, 400 trials
+   SOMP (all columns)   success at p = 6:0.00 8:0.02 10:0.44 12:0.87 14:0.97 16:0.99 20:1.00 24:1.00 28:1.00 32:1.00
+   l21 (all columns)    success at p = 6:0.63 8:0.97 10:1.00 12:1.00 14:1.00 16:1.00 20:1.00 24:1.00 28:1.00 32:1.00
+   OMP (one column)     success at p = 6:0.00 8:0.00 10:0.02 12:0.18 14:0.42 16:0.63 20:0.87 24:0.90 28:0.93 32:0.95
+   l21 solved to relative duality gap 1e-06: iterations median 50, max 5850 (4000 solves)
+saved fig07-spectrum
+doa: ULA M = 10, T = 50 snapshots, sources at [0.25 6.25] deg (beamwidth ~ 11.5 deg), grid step 0.5 deg
+   uncorrelated beamforming  P(resolve) at SNR = -5:0.00 0:0.00 5:0.00 10:0.00 15:0.00 20:0.00 25:0.00
+   uncorrelated MUSIC        P(resolve) at SNR = -5:0.10 0:0.70 5:1.00 10:1.00 15:1.00 20:1.00 25:1.00
+   uncorrelated l1-SVD       P(resolve) at SNR = -5:0.61 0:0.96 5:1.00 10:1.00 15:0.99 20:0.99 25:0.99
+   coherent     beamforming  P(resolve) at SNR = -5:0.09 0:0.09 5:0.09 10:0.01 15:0.01 20:0.00 25:0.00
+   coherent     MUSIC        P(resolve) at SNR = -5:0.03 0:0.12 5:0.10 10:0.16 15:0.17 20:0.21 25:0.24
+   coherent     l1-SVD       P(resolve) at SNR = -5:0.09 0:0.16 5:0.53 10:0.73 15:0.91 20:0.85 25:0.84
+   l1-SVD solved by interior point (Clarabel): largest relative duality gap 2.9e-08 (2801 solves)
+saved fig07-doa
+fdia: DC measurement models built from PYPOWER (bus 1 = reference)
+   case9: H is 26 x 8, rank 8, sigma_max/min = 65.94/4.506, ||theta0|| = 0.233; security index alpha = 3 (0.1 s)
+      theta0 = [ 0.171   0.0883 -0.0386 -0.0652  0.0385  0.0144  0.0691 -0.0709]
+   case14: H is 53 x 13, rank 13, sigma_max/min = 81.26/2.569, ||theta0|| = 0.882; security index alpha = 4 (0.5 s)
+      theta0 = [-0.0875 -0.2261 -0.1847 -0.1587 -0.2592 -0.2427 -0.2427 -0.2739 -0.2788
+ -0.2726 -0.2787 -0.2817 -0.3   ]
+fdia: IEEE 14-bus, single snapshot, SNR 30.0 dB, attack amplitude 4.44 p.u. per attacked meter, success = relative error < 2%, 300 trials
+   LS   success at k = 0:1.00 1:0.00 2:0.00 3:0.00 4:0.00 5:0.00 6:0.00 7:0.00 8:0.00 9:0.00 10:0.00 11:0.00 12:0.00 13:0.00 14:0.00
+   LNR  success at k = 0:1.00 1:1.00 2:0.99 3:0.99 4:0.98 5:0.99 6:0.97 7:0.93 8:0.93 9:0.88 10:0.85 11:0.84 12:0.78 13:0.75 14:0.62
+   LAD  success at k = 0:0.98 1:0.99 2:0.98 3:0.95 4:0.95 5:0.94 6:0.93 7:0.84 8:0.82 9:0.75 10:0.71 11:0.70 12:0.62 13:0.55 14:0.43
+   chi-square detector, random  attack: detection rate at k = 0:0.01 1:1.00 2:1.00 3:1.00 4:1.00 5:1.00 6:1.00 7:1.00 8:1.00 9:1.00 10:1.00 11:1.00 12:1.00 13:1.00 14:1.00
+   chi-square detector, stealth attack: detection rate at k = 0:0.00 1:0.01 2:0.00 3:0.01 4:0.01 5:0.01 6:0.01 7:0.00 8:0.00 9:0.01 10:0.01 11:0.01 12:0.00 13:0.01 14:0.00
+   sparsest stealth attack: ||a||_0 = 4, residual of LS = 1.29e-14, LAD estimate error = 0.886, ||H^+ a|| / ||theta0|| = 0.886
+saved fig07-fdia

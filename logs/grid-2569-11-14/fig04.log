@@ -1,0 +1,85 @@
+saved fig04-prox
+prox p=0 threshold sqrt(2*lam) = 1.414; p=1/2 jump near v = -1.430
+certificate: BP rel.err = 9.90e-16; ERC max |eta| off support = 0.856; eta_S*sign(x_S) = [1. 1. 1. 1. 1.]; LP duality gap = 1.33e-15; ||x||_1 = 3.8195, y^T u (ERC) = 3.8195
+saved fig04-certificate
+saved fig04-lasso-path
+lasso path: lambda_max = 1.568; first spurious coefficient enters at lambda/lambda_max = 0.060; all true coefficients nonzero from lambda/lambda_max = 0.441
+saved fig04-convergence
+convergence: n=1024 m=256 k=20 lambda=0.3475 f*=5.53387; iterations to gap 1e-6: ISTA 106, FISTA 74, ADMM 34; time for 400 iters (s): ISTA 0.11, FISTA 0.09, ADMM 0.10; rel.err FISTA = 0.288, supp recovered = False
+  ADMM beta=0.1: iterations to gap 1e-6 = 284
+  ADMM beta=1.0: iterations to gap 1e-6 = 34
+  ADMM beta=10.0: iterations to gap 1e-6 = 119
+saved fig04-irls
+irls: n=256 k=16; m for >=95% success: BP 72, IRLS p=1 80, IRLS p=0.5 64
+  rates table (m, BP, IRLS1, IRLS0.5):
+     32 0.00 0.00 0.00
+     40 0.00 0.00 0.32
+     48 0.02 0.00 0.68
+     56 0.36 0.26 0.94
+     64 0.72 0.68 1.00
+     72 0.96 0.94 1.00
+     80 0.98 0.98 1.00
+     88 1.00 1.00 1.00
+     96 1.00 1.00 1.00
+    104 1.00 1.00 1.00
+    112 1.00 1.00 1.00
+    120 1.00 1.00 1.00
+    128 1.00 1.00 1.00
+    136 1.00 1.00 1.00
+    144 1.00 1.00 1.00
+    152 1.00 1.00 1.00
+    160 1.00 1.00 1.00
+fnr equivalence n x n vs m x m: rel diff 5.8e-15; time 14.2 ms vs 7.5 ms
+fnr RMSRE vs p (noiseless, m,n,k=128,256,32, 200 trials, lam=5e-7, eta=xi=1e-6, rmin=1e-15):
+   p=0.50: FOCUSS 1.19e-01  IRLS-DR 1.15e-01  IP-FNR 3.22e-02  TSVD-FNR 5.58e-01
+   p=0.55: FOCUSS 1.04e-01  IRLS-DR 1.01e-01  IP-FNR 2.05e-02  TSVD-FNR 3.00e-01
+   p=0.60: FOCUSS 8.73e-02  IRLS-DR 8.67e-02  IP-FNR 1.76e-02  TSVD-FNR 2.01e-01
+   p=0.65: FOCUSS 7.52e-02  IRLS-DR 7.37e-02  IP-FNR 4.61e-05  TSVD-FNR 4.33e-02
+   p=0.70: FOCUSS 5.71e-02  IRLS-DR 5.74e-02  IP-FNR 3.93e-05  TSVD-FNR 3.47e-05
+   p=0.75: FOCUSS 4.30e-02  IRLS-DR 4.36e-02  IP-FNR 3.42e-05  TSVD-FNR 2.18e-05
+   p=0.80: FOCUSS 3.19e-02  IRLS-DR 3.24e-02  IP-FNR 3.05e-05  TSVD-FNR 1.67e-05
+   p=0.85: FOCUSS 1.10e-02  IRLS-DR 1.15e-02  IP-FNR 2.82e-05  TSVD-FNR 1.25e-05
+   p=0.90: FOCUSS 1.06e-02  IRLS-DR 1.05e-02  IP-FNR 2.77e-05  TSVD-FNR 9.16e-06
+   p=0.95: FOCUSS 3.29e-07  IRLS-DR 1.13e-05  IP-FNR 3.14e-05  TSVD-FNR 7.04e-06
+   p=1.00: FOCUSS 2.23e-06  IRLS-DR 1.70e-05  IP-FNR 5.95e-05  TSVD-FNR 8.54e-06
+saved fig04-fnr
+fnr RMSRE vs eta (noiseless, 200 trials, lam=5e-7):
+   p=0.8: 1e-300:1.7e-02  1e-12:1.7e-02  1e-10:1.5e-02  1e-08:6.8e-06  1e-07:9.4e-06  1e-06:3.2e-05  1e-05:2.6e-04  1e-04:2.6e-03  1e-03:2.8e-02  1e-02:2.0e-01
+   p=0.9: 1e-300:2.5e-03  1e-12:5.6e-06  1e-10:5.6e-06  1e-08:5.9e-06  1e-07:8.2e-06  1e-06:2.8e-05  1e-05:2.4e-04  1e-04:2.6e-03  1e-03:2.8e-02  1e-02:1.9e-01
+fnr RMSRE vs SNR (p=0.9, 100 trials):
+   SNR 10 dB: BP 5.316e-01  IRLS-DR 5.471e-01  IP-FNR 5.460e-01  TSVD-FNR 5.457e-01
+   SNR 20 dB: BP 1.963e-01  IRLS-DR 2.120e-01  IP-FNR 1.984e-01  TSVD-FNR 1.903e-01
+   SNR 30 dB: BP 6.610e-02  IRLS-DR 7.414e-02  IP-FNR 6.101e-02  TSVD-FNR 5.902e-02
+   SNR 40 dB: BP 2.184e-02  IRLS-DR 2.264e-02  IP-FNR 1.795e-02  TSVD-FNR 1.784e-02
+   SNR 50 dB: BP 7.014e-03  IRLS-DR 6.549e-03  IP-FNR 5.302e-03  TSVD-FNR 5.344e-03
+frozen-weight MSE (m,n,k=19,64,3, sigma^2=0.01): oracle 0.037011
+   pinv   p=0.3: var 0.037011  bias^2 3.6e-30
+   pinv   p=0.9: var 0.037011  bias^2 1.6e-32
+   pinv   p=1.0: var 0.037011  bias^2 6.2e-32
+   delta=1e-06 p=0.5: var 0.036997  bias^2 1.04e-10
+   delta=1e-06 p=0.9: var 0.037008  bias^2 5.85e-12
+   delta=0.001 p=0.5: var 0.028966  bias^2 4.59e-05
+   delta=0.001 p=0.9: var 0.034334  bias^2 4.93e-06
+   delta=0.1 p=0.5: var 0.010743  bias^2 9.96e-03
+   delta=0.1 p=0.9: var 0.012916  bias^2 5.97e-03
+saved fig04-focuss-mse
+focuss-mse: n=128 m=48 k=6 oracle const tr((Phi_S^T Phi_S)^-1) = 7.579
+   SNR  0 dB: FOCUSS 6.000e+00  oracle 1.127e+00  ratio 5.32  min-norm 7.984e+00  support-rate 0.00
+   SNR  5 dB: FOCUSS 6.000e+00  oracle 3.564e-01  ratio 16.83  min-norm 5.257e+00  support-rate 0.00
+   SNR 10 dB: FOCUSS 5.620e+00  oracle 1.127e-01  ratio 49.86  min-norm 4.380e+00  support-rate 0.03
+   SNR 15 dB: FOCUSS 7.353e-01  oracle 3.564e-02  ratio 20.63  min-norm 4.085e+00  support-rate 0.61
+   SNR 20 dB: FOCUSS 4.239e-02  oracle 1.127e-02  ratio 3.76  min-norm 3.994e+00  support-rate 1.00
+   SNR 25 dB: FOCUSS 6.348e-03  oracle 3.564e-03  ratio 1.78  min-norm 3.966e+00  support-rate 1.00
+   SNR 30 dB: FOCUSS 1.379e-03  oracle 1.127e-03  ratio 1.22  min-norm 3.957e+00  support-rate 1.00
+   SNR 35 dB: FOCUSS 3.743e-04  oracle 3.564e-04  ratio 1.05  min-norm 3.954e+00  support-rate 1.00
+   SNR 40 dB: FOCUSS 1.137e-04  oracle 1.127e-04  ratio 1.01  min-norm 3.953e+00  support-rate 1.00
+small-xi check k,m,n=3,19,64 SNR 20 dB: median sq. error 2.44e-02  mean oracle 2.01e-03  ratio 12.1  exact-support rate 0.00
+small-xi check k,m,n=3,19,64 SNR 40 dB: median sq. error 2.59e-04  mean oracle 2.01e-05  ratio 12.9  exact-support rate 0.00
+small-xi check k,m,n=2,51,128 SNR 20 dB: median sq. error 1.44e-02  mean oracle 4.14e-04  ratio 34.8  exact-support rate 0.00
+small-xi check k,m,n=2,51,128 SNR 40 dB: median sq. error 1.45e-04  mean oracle 4.14e-06  ratio 35.1  exact-support rate 0.00
+saved fig04-runtime
+runtime (s) for n = [128, 256, 512, 1024, 2048]
+   BP (LP)         0.005    0.018    0.088    0.826    6.530  slope(log2) = 2.63
+   FISTA           0.007    0.011    0.020    0.120    0.674  slope(log2) = 1.68
+   ADMM            0.004    0.007    0.013    0.084    0.387  slope(log2) = 1.65
+   IRLS $p=1$      0.001    0.004    0.020    0.177    1.255  slope(log2) = 2.52

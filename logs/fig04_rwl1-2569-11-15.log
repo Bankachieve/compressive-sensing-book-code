@@ -1,0 +1,11 @@
+rwl1 (exercise 4.6): n=256 k=16 trials=50 eps=0.1, BP + 5 reweighted solves, seed 46
+   m     BP  RW-l1  IRLS p=0.5
+    40  0.00  0.06  0.28
+    48  0.02  0.34  0.78
+    56  0.16  0.84  0.98
+    64  0.68  1.00  1.00
+    72  0.92  1.00  1.00
+    80  1.00  1.00  1.00
+    88  1.00  1.00  1.00
+   m for >=95%: BP 80, RW-l1 64, IRLS p=0.5 56
+   trials where BP succeeded but reweighting failed: 0; reweighting succeeded but BP failed: 73

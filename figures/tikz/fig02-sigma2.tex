@@ -1,0 +1,55 @@
+% ภาพที่ 2.7 เซต Sigma_2 ใน R^3 เป็นยูเนียนของระนาบพิกัด (แผนภาพ TikZ ต้นฉบับของผู้แต่ง)
+% ระนาบแต่ละระนาบแบ่งเป็นสี่ส่วนและวาดจากหลังไปหน้าตามความลึกตามทิศการมอง (1, 0.55, 0.40)
+% เพื่อให้การบังกันถูกต้อง; x และ z เบาบางระดับ 2 แต่ x + z มีสมาชิกไม่เป็นศูนย์ 3 ตัว
+\definecolor{dgS12}{HTML}{E3EEFE}
+\definecolor{dgS13}{HTML}{BCD5F8}
+\definecolor{dgS23}{HTML}{93B8F2}
+\begin{tikzpicture}[
+  x={(-0.55cm,-0.32cm)}, y={(1cm,-0.15cm)}, z={(0cm,1cm)}, scale=2.35,
+  plane/.style={draw=dgAccDk!75, line width=0.45pt, fill opacity=0.60, draw opacity=0.85, line join=round},
+  axneg/.style={dgGry, line width=0.55pt, dash pattern=on 2pt off 1.5pt},
+  axpos/.style={-{Stealth[length=2.2mm, width=1.6mm]}, line width=0.7pt, dgInk},
+  vec/.style={-{Stealth[length=2.4mm, width=1.8mm]}, line width=1.1pt, dgAccDk},
+  lab/.style={font=\footnotesize, text=dgInk, inner sep=1.5pt},
+  plab/.style={font=\scriptsize, text=dgAccDk, inner sep=1pt},
+]
+% ---- ครึ่งแกนด้านลบ (อยู่ด้านหลังระนาบ) ----
+\draw[axneg] (0,0,0) -- (-1.15,0,0);
+\draw[axneg] (0,0,0) -- (0,-1.15,0);
+\draw[axneg] (0,0,0) -- (0,0,-1.15);
+% ---- ระนาบพิกัดสามระนาบ (12 ส่วน เรียงจากหลังไปหน้า) ----
+\filldraw[fill=dgS12, plane] (0,0,0) -- (-1,0,0) -- (-1,-1,0) -- (0,-1,0) -- cycle;  % S={1,2}, depth -0.78
+\filldraw[fill=dgS13, plane] (0,0,0) -- (-1,0,0) -- (-1,0,-1) -- (0,0,-1) -- cycle;  % S={1,3}, depth -0.70
+\filldraw[fill=dgS23, plane] (0,0,0) -- (0,-1,0) -- (0,-1,-1) -- (0,0,-1) -- cycle;  % S={2,3}, depth -0.48
+\filldraw[fill=dgS13, plane] (0,0,0) -- (-1,0,0) -- (-1,0,1) -- (0,0,1) -- cycle;  % S={1,3}, depth -0.30
+\filldraw[fill=dgS12, plane] (0,0,0) -- (-1,0,0) -- (-1,1,0) -- (0,1,0) -- cycle;  % S={1,2}, depth -0.22
+\filldraw[fill=dgS23, plane] (0,0,0) -- (0,-1,0) -- (0,-1,1) -- (0,0,1) -- cycle;  % S={2,3}, depth -0.07
+\filldraw[fill=dgS23, plane] (0,0,0) -- (0,1,0) -- (0,1,-1) -- (0,0,-1) -- cycle;  % S={2,3}, depth +0.07
+\filldraw[fill=dgS12, plane] (0,0,0) -- (1,0,0) -- (1,-1,0) -- (0,-1,0) -- cycle;  % S={1,2}, depth +0.22
+\filldraw[fill=dgS13, plane] (0,0,0) -- (1,0,0) -- (1,0,-1) -- (0,0,-1) -- cycle;  % S={1,3}, depth +0.30
+\filldraw[fill=dgS23, plane] (0,0,0) -- (0,1,0) -- (0,1,1) -- (0,0,1) -- cycle;  % S={2,3}, depth +0.48
+\filldraw[fill=dgS13, plane] (0,0,0) -- (1,0,0) -- (1,0,1) -- (0,0,1) -- cycle;  % S={1,3}, depth +0.70
+\filldraw[fill=dgS12, plane] (0,0,0) -- (1,0,0) -- (1,1,0) -- (0,1,0) -- cycle;  % S={1,2}, depth +0.78
+% ---- ครึ่งแกนด้านบวก ----
+\draw[axpos] (1,0,0) -- (1.42,0,0) node[lab, anchor=north east] {$x_1$};
+\draw[axpos] (0,1,0) -- (0,1.38,0) node[lab, anchor=west] {$x_2$};
+\draw[axpos] (0,0,1) -- (0,0,1.32) node[lab, anchor=south] {$x_3$};
+% ---- ป้ายตัวรองรับของแต่ละระนาบ ----
+\node[plab] at (0.62,-0.80,0) {$S=\{1,2\}$};
+\node[plab] at (0.72,0,-0.80) {$S=\{1,3\}$};
+\node[plab] at (0,0.62,-0.82) {$S=\{2,3\}$};
+% ---- เวกเตอร์เบาบางสองตัวและผลบวก ----
+\coordinate (O) at (0,0,0);
+\coordinate (X) at (0.80,0,0.48);
+\coordinate (Z) at (0,0.72,0.42);
+\coordinate (W) at (0.80,0.72,0.90);
+\draw[dgAmb, line width=0.6pt, dash pattern=on 2.2pt off 1.6pt] (X) -- (W) -- (Z);
+\draw[-{Stealth[length=2.4mm, width=1.8mm]}, line width=1.0pt, dgAmb, dash pattern=on 3pt off 1.8pt] (O) -- (W);
+\draw[vec] (O) -- (X);
+\draw[vec] (O) -- (Z);
+\fill[dgAccDk] (O) circle (0.75pt);
+\node[lab, anchor=north east] at (X) {$\mathbf{x} \in \Sigma_2$};
+\node[lab, anchor=south west] at (Z) {$\mathbf{z} \in \Sigma_2$};
+\fill[dgAmb] (W) circle (1.1pt);
+\node[lab, text=dgAmb, anchor=south] at ($(W)+(0,0,0.04)$) {$\mathbf{x}+\mathbf{z} \notin \Sigma_2$};
+\end{tikzpicture}

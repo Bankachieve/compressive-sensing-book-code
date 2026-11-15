@@ -1,0 +1,11 @@
+{
+  "title": "Source code for the book การรับรู้เชิงบีบอัด (Compressive Sensing)",
+  "description": "Python scripts, run logs and TikZ diagram sources that reproduce every figure and numerical result in the Thai-language monograph การรับรู้เชิงบีบอัด (Compressive Sensing). code/MANIFEST.md maps each figure and table to its script, section, random seed and log.",
+  "upload_type": "software",
+  "creators": [
+    {"name": "Asavaskulkiet, Krissada", "affiliation": "Mahidol University"}
+  ],
+  "license": "MIT",
+  "keywords": ["compressive sensing", "sparse signal processing", "reproducible research"],
+  "language": "tha"
+}

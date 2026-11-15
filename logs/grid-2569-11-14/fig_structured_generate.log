@@ -1,0 +1,9 @@
+regression: ||x_ls||_0=40, ||x_ridge||_0=40, ||x_lasso||_0=4
+regression rel.err: LS=0.127, ridge=0.492, lasso=0.079; lasso support=[ 4 11 23 31]
+saved fig01-regression
+saved fig02-structured
+rank 10: rel. Frobenius error = 0.389 (formula 0.389)
+rank 30: rel. Frobenius error = 0.177 (formula 0.177)
+energy in top 30 singular values = 96.9%
+saved fig02-lowrank
+ALL DONE

@@ -1,0 +1,6 @@
+ex1-6: n=256 k=8 trials=100 seed 16; success = rel. err < 1e-3
+   m=16:0.00  m=24:0.01  m=32:0.27  m=40:0.68  m=48:0.95  m=56:1.00  m=64:1.00  m=72:1.00  m=80:1.00  m=88:1.00  m=96:1.00  m=104:1.00  m=112:1.00  m=120:1.00  m=128:1.00
+   smallest m with success > 95%: 56;  2 k log(n/k) = 55.5
+ex4-4: m,n,k = 64,256,8, beta = 1.0, 10 trials, seed 44; stop when ||x - z|| < 1e-8 (cap 20000)
+   ADMM iterations: median 258, max 311, all = [254, 226, 240, 263, 193, 311, 269, 168, 273, 303]
+   median relative error: ADMM 6.9e-09, LP 1.5e-14

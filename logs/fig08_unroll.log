@@ -1,0 +1,26 @@
+unroll: n = 200, m = 100, Gaussian Phi with unit-norm columns, Bernoulli-Gaussian x (p = 0.1), SNR 40 dB, T = 16 layers
+   closed-form W: max |diag(W^T Phi) - 1| = 7.8e-16; ||W^T Phi||_F^2 = 402.01 (projected gradient 402.01, ||W - W_pg||/||W|| = 2.7e-15)
+   leverage scores l_i = (Phi^+ Phi)_ii: mean 0.500 (m/n = 0.500), min 0.409, max 0.596
+   generalized coherence max_(i!=j) |w_i^T phi_j|: W = Phi 0.405, W = closed form 0.311
+   tuned on validation at T = 16: ISTA lambda 0.2, FISTA lambda 0.2, STA-MPI gamma_h 0.8
+   ISTA run to 1000 iterations (lambda tuned separately on validation: 0.02): -7.2 dB after 100, -27.8 dB after 1000 iterations
+   training: Adam, batch 256, 3000 steps each, fresh samples every step; ALISTA 236 s (32 parameters), LISTA-CP 202 s (320016 parameters)
+   learned ALISTA step sizes gamma_t: [0.784 3.168 0.649 2.293 0.518 2.044 1.261 1.113 1.461 0.627 1.618 0.702
+ 1.673 0.523 1.54  1.194]
+   learned ALISTA thresholds theta_t: [0.4989 1.2405 0.106  0.2545 0.0466 0.158  0.0702 0.0537 0.0536 0.0226
+ 0.0472 0.0172 0.0337 0.0089 0.022  0.0103]
+   NMSE (dB) on test set at layer t = 1, 2, 4, 8, 12, 16
+   ISTA         -1.2    -1.9    -2.8    -4.1    -5.2    -6.1
+   FISTA        -1.2    -1.9    -3.2    -5.7    -8.4   -10.5
+   STA-MPI       0.0    -0.3    -1.5    -5.5   -10.2   -14.1
+   ALISTA       -4.2    -9.6   -15.3   -20.4   -23.3   -25.1
+   LISTA-CP     -4.0    -7.1   -11.1   -16.2   -19.7   -22.2
+   distribution shift: NMSE (dB) at T = 16 when the test sparsity p differs from training p = 0.10
+   p                 0.05    0.10    0.15    0.20    0.25
+   ISTA (1000 it.)  -32.3   -26.6   -17.8   -11.6    -8.2
+   FISTA            -13.8   -10.4    -7.9    -6.3    -5.3
+   STA-MPI          -18.6   -13.9   -10.6    -8.5    -6.9
+   ALISTA           -37.7   -24.0   -15.0   -10.2    -7.4
+   LISTA-CP         -33.4   -21.4   -13.0    -8.3    -5.3
+saved fig08-unroll
+DONE

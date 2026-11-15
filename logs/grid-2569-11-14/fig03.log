@@ -1,0 +1,37 @@
+geometry: l2 touching point = (0.374, 0.832)
+saved fig03-geometry
+coherence (mean over 20 trials): m, gaussian, bernoulli, partial-DCT, welch
+    16  0.855  0.956  0.850  0.243
+    24  0.745  0.817  0.714  0.195
+    32  0.672  0.716  0.636  0.166
+    48  0.559  0.585  0.501  0.130
+    64  0.495  0.527  0.415  0.108
+    96  0.417  0.436  0.315  0.081
+   128  0.369  0.376  0.242  0.063
+   192  0.302  0.306  0.143  0.036
+saved fig03-coherence
+RIP experiment m=64 n=256 k=8: ratio range [0.471, 1.780], sigma_min^2 range [0.271,0.779], sigma_max^2 range [1.206,2.319], empirical delta_k lower bound = 1.319
+saved fig03-rip
+saved fig03-matrices
+phase transition success matrix (rows rho=k/m 0.1..0.9, cols delta=m/n 0.1..0.9):
+[[1.   1.   1.   1.   1.   1.   1.   1.   1.  ]
+ [0.5  0.85 1.   1.   1.   1.   1.   1.   1.  ]
+ [0.15 0.4  0.6  0.8  1.   1.   1.   1.   1.  ]
+ [0.05 0.   0.   0.1  0.4  0.75 0.95 0.95 1.  ]
+ [0.   0.   0.   0.05 0.05 0.1  0.5  0.95 0.95]
+ [0.   0.   0.   0.   0.   0.   0.15 0.4  0.95]
+ [0.   0.   0.   0.   0.   0.   0.   0.   0.6 ]
+ [0.   0.   0.   0.   0.   0.   0.   0.   0.1 ]
+ [0.   0.   0.   0.   0.   0.   0.   0.   0.  ]]
+stat-dim curve check: psi(0.1)=0.329, psi(0.2)=0.511
+saved fig03-phase
+noisy: sigma, eps=||e||, err_BPDN, err_OMP, err_LS, ratio err_BPDN/eps
+  0.001 0.008 0.0114 0.0029 2.2770 1.43
+  0.003 0.024 0.0347 0.0086 2.2770 1.45
+  0.010 0.080 0.1097 0.0253 2.2774 1.37
+  0.030 0.240 0.3089 0.0919 2.2814 1.29
+  0.100 0.800 0.9307 0.4954 2.3197 1.16
+  0.300 2.400 2.2540 2.9969 2.6381 0.94
+log-log slope of BPDN error vs eps = 0.93
+saved fig03-noisy
+ALL DONE

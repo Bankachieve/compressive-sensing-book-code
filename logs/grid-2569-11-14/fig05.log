@@ -1,0 +1,146 @@
+saved fig05-omp-trace
+omp-trace: n,m,k=128,40,5; support [np.int64(53), np.int64(70), np.int64(92), np.int64(94), np.int64(109)]; OMP picks [94, 92, 109, 53, 70]; all correct: True; OMP rel err 6.5e-16
+   MP iterations to ||r||/||y|| <= 1e-2: 17, <= 1e-4: 36, after 200: 7.0e-18; distinct atoms used by MP: 5
+   rank of first-pick correlation among all: true support correlations [0.201 0.137 0.448 0.881 0.227], max off-support 0.522
+   coherence mu = 0.534; coherence condition k < (1+1/mu)/2 = 1.44
+recovery (gauss) n,m=256,96, 60 trials: k at 50% success: BP 32.0  OMP 28.4  CoSaMP 32.9  SP 35.7  NIHT 30.3  HTP 35.2
+   k= 4: BP 1.00  OMP 1.00  CoSaMP 1.00  SP 1.00  NIHT 1.00  HTP 1.00
+   k= 8: BP 1.00  OMP 1.00  CoSaMP 1.00  SP 1.00  NIHT 1.00  HTP 1.00
+   k=12: BP 1.00  OMP 1.00  CoSaMP 1.00  SP 1.00  NIHT 1.00  HTP 1.00
+   k=16: BP 1.00  OMP 1.00  CoSaMP 1.00  SP 1.00  NIHT 1.00  HTP 1.00
+   k=20: BP 1.00  OMP 0.88  CoSaMP 1.00  SP 1.00  NIHT 0.95  HTP 1.00
+   k=24: BP 0.98  OMP 0.77  CoSaMP 0.98  SP 1.00  NIHT 0.85  HTP 0.97
+   k=28: BP 0.83  OMP 0.52  CoSaMP 0.93  SP 0.97  NIHT 0.73  HTP 1.00
+   k=32: BP 0.50  OMP 0.35  CoSaMP 0.65  SP 0.88  NIHT 0.33  HTP 0.82
+   k=36: BP 0.15  OMP 0.15  CoSaMP 0.00  SP 0.47  NIHT 0.08  HTP 0.42
+   k=40: BP 0.02  OMP 0.03  CoSaMP 0.00  SP 0.22  NIHT 0.03  HTP 0.17
+   k=44: BP 0.00  OMP 0.03  CoSaMP 0.00  SP 0.03  NIHT 0.00  HTP 0.02
+   k=48: BP 0.00  OMP 0.00  CoSaMP 0.00  SP 0.00  NIHT 0.00  HTP 0.00
+   k=52: BP 0.00  OMP 0.00  CoSaMP 0.00  SP 0.00  NIHT 0.00  HTP 0.00
+recovery (sign) n,m=256,96, 60 trials: k at 50% success: BP 31.1  OMP 16.2  CoSaMP 28.0  SP 27.6  NIHT 24.5  HTP 24.0
+   k= 4: BP 1.00  OMP 1.00  CoSaMP 1.00  SP 1.00  NIHT 1.00  HTP 1.00
+   k= 8: BP 1.00  OMP 1.00  CoSaMP 1.00  SP 1.00  NIHT 1.00  HTP 1.00
+   k=12: BP 1.00  OMP 0.77  CoSaMP 1.00  SP 1.00  NIHT 0.98  HTP 1.00
+   k=16: BP 1.00  OMP 0.52  CoSaMP 1.00  SP 1.00  NIHT 0.95  HTP 0.93
+   k=20: BP 1.00  OMP 0.17  CoSaMP 0.98  SP 0.93  NIHT 0.77  HTP 0.83
+   k=24: BP 1.00  OMP 0.02  CoSaMP 0.82  SP 0.78  NIHT 0.55  HTP 0.50
+   k=28: BP 0.83  OMP 0.00  CoSaMP 0.50  SP 0.47  NIHT 0.12  HTP 0.17
+   k=32: BP 0.40  OMP 0.00  CoSaMP 0.00  SP 0.10  NIHT 0.00  HTP 0.00
+   k=36: BP 0.17  OMP 0.00  CoSaMP 0.00  SP 0.02  NIHT 0.00  HTP 0.00
+   k=40: BP 0.00  OMP 0.00  CoSaMP 0.02  SP 0.00  NIHT 0.00  HTP 0.00
+   k=44: BP 0.00  OMP 0.00  CoSaMP 0.00  SP 0.00  NIHT 0.00  HTP 0.00
+   k=48: BP 0.00  OMP 0.00  CoSaMP 0.00  SP 0.00  NIHT 0.00  HTP 0.00
+   k=52: BP 0.00  OMP 0.00  CoSaMP 0.00  SP 0.00  NIHT 0.00  HTP 0.00
+saved fig05-recovery
+saved fig05-noisy
+noisy: n,m,k=256,96,12, 100 trials, LASSO lambda = sigma sqrt(2 log n), AMP gamma=1.5
+   SNR  5: Oracle LS 0.219  OMP 0.519  CoSaMP 0.609  SP 0.520  NIHT 0.511  HTP 0.501  AMP 0.460  LASSO 0.592  LASSO+LS 0.439
+   SNR 10: Oracle LS 0.119  OMP 0.251  CoSaMP 0.326  SP 0.261  NIHT 0.260  HTP 0.248  AMP 0.293  LASSO 0.404  LASSO+LS 0.262
+   SNR 15: Oracle LS 0.067  OMP 0.114  CoSaMP 0.158  SP 0.124  NIHT 0.130  HTP 0.117  AMP 0.174  LASSO 0.252  LASSO+LS 0.143
+   SNR 20: Oracle LS 0.037  OMP 0.055  CoSaMP 0.078  SP 0.059  NIHT 0.059  HTP 0.056  AMP 0.101  LASSO 0.150  LASSO+LS 0.075
+   SNR 25: Oracle LS 0.021  OMP 0.026  CoSaMP 0.040  SP 0.028  NIHT 0.026  HTP 0.027  AMP 0.059  LASSO 0.090  LASSO+LS 0.042
+   SNR 30: Oracle LS 0.012  OMP 0.017  CoSaMP 0.021  SP 0.015  NIHT 0.014  HTP 0.014  AMP 0.032  LASSO 0.050  LASSO+LS 0.022
+   SNR 35: Oracle LS 0.007  OMP 0.008  CoSaMP 0.011  SP 0.008  NIHT 0.008  HTP 0.008  AMP 0.019  LASSO 0.030  LASSO+LS 0.013
+   SNR 40: Oracle LS 0.004  OMP 0.004  CoSaMP 0.006  SP 0.004  NIHT 0.004  HTP 0.004  AMP 0.011  LASSO 0.017  LASSO+LS 0.007
+amp: n,m,k=2000,1000,100, sigma=0.01, gamma=1.5; calibrated LASSO lambda=0.0128
+   t= 1: AMP 1.521e-02  SE 1.578e-02
+   t= 2: AMP 4.602e-03  SE 5.358e-03
+   t= 5: AMP 2.078e-04  SE 3.276e-04
+   t=10: AMP 3.817e-05  SE 3.685e-05
+   t=20: AMP 3.600e-05  SE 3.379e-05
+   t=40: AMP 3.600e-05  SE 3.379e-05
+   iterations to within 5% of AMP final MSE 3.600e-05: AMP 11, FISTA 46, ISTA 347
+   ||x_AMP - x_FISTA(3000)|| / ||x_FISTA|| = 5.15e-10
+saved fig05-amp
+   cond   1: AMP MSE after 40 it 2.575e-05   FISTA after 3000 it 2.505e-05
+   cond  10: AMP MSE after 40 it 2.172e+28   FISTA after 3000 it 4.516e-05
+   cond 100: AMP MSE after 40 it 3.414e+71   FISTA after 3000 it 2.935e-04
+mmv n,m=128,32: C= 1 k at 50% support recovery = 8.9; rates 0.99 0.95 0.89 0.64 0.32 0.09 0.03 0.00 0.00 0.00 0.00 0.00 0.00 0.00 0.00
+mmv n,m=128,32: C= 2 k at 50% support recovery = 10.0; rates 0.99 0.98 0.90 0.74 0.50 0.32 0.07 0.01 0.00 0.00 0.00 0.00 0.00 0.00 0.00
+mmv n,m=128,32: C= 4 k at 50% support recovery = 11.2; rates 1.00 0.99 0.96 0.85 0.64 0.40 0.31 0.09 0.03 0.00 0.00 0.00 0.00 0.00 0.00
+mmv n,m=128,32: C= 8 k at 50% support recovery = 12.8; rates 1.00 0.99 0.97 0.97 0.78 0.65 0.29 0.11 0.01 0.00 0.00 0.00 0.00 0.00 0.00
+mmv n,m=128,32: C=16 k at 50% support recovery = 13.8; rates 1.00 1.00 0.98 0.92 0.82 0.70 0.48 0.15 0.09 0.01 0.00 0.00 0.00 0.00 0.00
+saved fig05-mmv
+dictionary run 0: K-SVD final recovered 94%  (time 4.5 s); at it 10: 60%, it 20: 90%
+dictionary run 0: MOD final recovered 96%  (time 4.1 s); at it 10: 70%, it 20: 94%
+dictionary run 1: K-SVD final recovered 88%  (time 4.5 s); at it 10: 62%, it 20: 84%
+dictionary run 1: MOD final recovered 88%  (time 4.3 s); at it 10: 64%, it 20: 84%
+dictionary run 2: K-SVD final recovered 92%  (time 4.8 s); at it 10: 68%, it 20: 86%
+dictionary run 2: MOD final recovered 96%  (time 4.4 s); at it 10: 64%, it 20: 94%
+saved fig05-dictionary
+dictionary n,d,J,k=20,50,1500,3, SNR 20 dB, 3 runs: mean final K-SVD 91.3%  MOD 93.3%
+author: soft homotopy family, RMSRE vs gamma_h (noiseless, m,n,k=128,256,6, T=100, 1000 trials, column energy s^2=1.0)
+   gamma_h=0.70: SHA 2.0e-02 [0.010]  SHA-MPI 8.4e-02 [0.180]  SMHA-MPI 2.1e-01 [0.603]  STA-MPI 8.3e-02 [0.183]  SMTA-MPI 2.1e-01 [0.604]
+   gamma_h=0.75: SHA 4.2e-03 [0.000]  SHA-MPI 3.0e-02 [0.029]  SMHA-MPI 1.4e-01 [0.319]  STA-MPI 3.1e-02 [0.029]  SMTA-MPI 1.4e-01 [0.318]
+   gamma_h=0.80: SHA 1.3e-07 [0.000]  SHA-MPI 3.9e-03 [0.000]  SMHA-MPI 7.4e-02 [0.094]  STA-MPI 3.9e-03 [0.000]  SMTA-MPI 7.4e-02 [0.093]
+   gamma_h=0.85: SHA 1.7e-07 [0.000]  SHA-MPI 4.2e-07 [0.000]  SMHA-MPI 2.8e-02 [0.011]  STA-MPI 2.1e-07 [0.000]  SMTA-MPI 2.8e-02 [0.012]
+   gamma_h=0.88: SHA 5.6e-06 [0.000]  SHA-MPI 1.3e-05 [0.000]  SMHA-MPI 1.7e-02 [0.005]  STA-MPI 6.2e-06 [0.000]  SMTA-MPI 1.6e-02 [0.005]
+   gamma_h=0.90: SHA 5.2e-05 [0.000]  SHA-MPI 1.1e-04 [0.000]  SMHA-MPI 4.1e-03 [0.001]  STA-MPI 5.7e-05 [0.000]  SMTA-MPI 4.1e-03 [0.001]
+   gamma_h=0.93: SHA 1.4e-03 [0.000]  SHA-MPI 2.9e-03 [0.000]  SMHA-MPI 2.9e-03 [0.000]  STA-MPI 1.4e-03 [0.000]  SMTA-MPI 1.4e-03 [0.000]
+   gamma_h=0.95: SHA 1.1e-02 [0.000]  SHA-MPI 2.3e-02 [0.000]  SMHA-MPI 2.3e-02 [0.000]  STA-MPI 1.2e-02 [0.000]  SMTA-MPI 1.2e-02 [0.000]
+   gamma_h=0.98: SHA 2.3e-01 [1.000]  SHA-MPI 4.2e-01 [1.000]  SMHA-MPI 4.2e-01 [1.000]  STA-MPI 2.3e-01 [1.000]  SMTA-MPI 2.3e-01 [1.000]
+   bias law: RMSRE(0.95)/RMSRE(0.93) = 8.12 vs (0.95/0.93)^100 = 8.40;  RMSRE(0.93)/RMSRE(0.88) = 230 vs (0.93/0.88)^100 = 251;  RMSRE/gamma^T at 0.88, 0.93, 0.95 = 2.21, 2.03, 1.96
+   SHA: RMSRE/gamma^T at 0.88, 0.93, 0.95 = 1.98, 1.95, 1.94
+author: soft homotopy family, RMSRE vs gamma_h (noiseless, m,n,k=128,256,6, T=100, 1000 trials, column energy s^2=0.15)
+   gamma_h=0.70: SHA 7.3e-01 [1.000]  SHA-MPI 1.4e-01 [0.231]  SMHA-MPI 3.4e-01 [0.664]  STA-MPI 8.3e-02 [0.183]  SMTA-MPI 2.1e-01 [0.604]
+   gamma_h=0.75: SHA 6.8e-01 [1.000]  SHA-MPI 9.7e-02 [0.059]  SMHA-MPI 2.9e-01 [0.402]  STA-MPI 3.1e-02 [0.029]  SMTA-MPI 1.4e-01 [0.318]
+   gamma_h=0.80: SHA 6.2e-01 [1.000]  SHA-MPI 8.4e-02 [0.015]  SMHA-MPI 2.6e-01 [0.201]  STA-MPI 3.9e-03 [0.000]  SMTA-MPI 7.4e-02 [0.093]
+   gamma_h=0.85: SHA 5.1e-01 [0.998]  SHA-MPI 8.4e-02 [0.014]  SMHA-MPI 2.5e-01 [0.135]  STA-MPI 2.1e-07 [0.000]  SMTA-MPI 2.8e-02 [0.012]
+   gamma_h=0.88: SHA 4.1e-01 [0.976]  SHA-MPI 8.4e-02 [0.014]  SMHA-MPI 2.5e-01 [0.127]  STA-MPI 6.2e-06 [0.000]  SMTA-MPI 1.6e-02 [0.005]
+   gamma_h=0.90: SHA 3.1e-01 [0.865]  SHA-MPI 8.4e-02 [0.014]  SMHA-MPI 2.5e-01 [0.123]  STA-MPI 5.7e-05 [0.000]  SMTA-MPI 4.1e-03 [0.001]
+   gamma_h=0.93: SHA 1.4e-01 [0.311]  SHA-MPI 8.4e-02 [0.014]  SMHA-MPI 2.5e-01 [0.121]  STA-MPI 1.4e-03 [0.000]  SMTA-MPI 1.4e-03 [0.000]
+   gamma_h=0.95: SHA 4.1e-02 [0.035]  SHA-MPI 8.4e-02 [0.014]  SMHA-MPI 2.4e-01 [0.120]  STA-MPI 1.2e-02 [0.000]  SMTA-MPI 1.2e-02 [0.000]
+   gamma_h=0.98: SHA 2.6e-01 [1.000]  SHA-MPI 1.1e-01 [0.047]  SMHA-MPI 2.5e-01 [0.152]  STA-MPI 2.3e-01 [1.000]  SMTA-MPI 2.3e-01 [1.000]
+saved fig05-author
+author: rare premature stops of STA-MPI, unit-norm columns, 8000 trials (RMSRE, fraction with rel. err > 0.1)
+   gamma_h=0.80: RMSRE 6.2e-03, fraction 0.00112, median 5.1e-10
+   gamma_h=0.85: RMSRE 7.8e-04, fraction 0.00000, median 1.9e-07
+   gamma_h=0.88: RMSRE 6.1e-06, fraction 0.00000, median 5.9e-06
+author: RMSRE vs max iterations T, unit-norm columns (gamma_h per paper: SHA 0.95, SHA-MPI 0.9, SMHA-MPI 0.91, STA-MPI 0.88, SMTA-MPI 0.93), 300 trials
+   T= 20: SHA 5.4e-01  SHA-MPI 4.3e-01  SMHA-MPI 5.1e-01  STA-MPI 1.6e-01  SMTA-MPI 4.0e-01
+   T= 40: SHA 2.3e-01  SHA-MPI 6.2e-02  SMHA-MPI 9.4e-02  STA-MPI 1.3e-02  SMTA-MPI 1.1e-01
+   T= 70: SHA 5.3e-02  SHA-MPI 2.7e-03  SMHA-MPI 5.7e-03  STA-MPI 2.8e-04  SMTA-MPI 1.2e-02
+   T=100: SHA 1.1e-02  SHA-MPI 1.1e-04  SMHA-MPI 3.4e-04  STA-MPI 6.1e-06  SMTA-MPI 1.4e-03
+   T=200: SHA 6.8e-05  SHA-MPI 3.0e-09  SMHA-MPI 2.7e-08  STA-MPI 1.7e-11  SMTA-MPI 1.0e-06
+author: invariance test at gamma_h = 0.88, T = 100, 1000 trials (same signals, four versions of the same linear system)
+   unit-norm columns (s^2 = 1)      cond(Phi) ~     5.5: SHA 5.6e-06   SHA-MPI 1.3e-05   STA-MPI 6.2e-06
+   scaled, s^2 = 0.15               cond(Phi) ~     5.5: SHA 4.1e-01   SHA-MPI 8.4e-02   STA-MPI 6.2e-06
+   scaled, s^2 = sqrt(m)            cond(Phi) ~     5.5: SHA 2.7e+02   SHA-MPI 1.4e-04   STA-MPI 6.2e-06
+   left-multiplied, cond(B) = 100   cond(Phi) ~   174.9: SHA 8.4e-01   SHA-MPI 3.3e-01   STA-MPI 6.2e-06
+author: noisy case, unit-norm columns, 300 trials; heuristic ratio 1/sqrt(1-m/n) = 1.414; sqrt(m^2/(n(n-m-1))) = 0.710
+   SNR 10 dB: SHA(0.95) 1.862e-01  STA-MPI(0.88) 2.640e-01  ratio 1.42 | SHA(0.90) 1.881e-01  STA-MPI(0.90) 2.586e-01  ratio 1.37 | ||Phi^+ e||/||Phi^T e|| ~ 0.706
+   SNR 20 dB: SHA(0.95) 6.303e-02  STA-MPI(0.88) 9.365e-02  ratio 1.49 | SHA(0.90) 6.431e-02  STA-MPI(0.90) 9.040e-02  ratio 1.41 | ||Phi^+ e||/||Phi^T e|| ~ 0.706
+   SNR 30 dB: SHA(0.95) 2.048e-02  STA-MPI(0.88) 3.091e-02  ratio 1.51 | SHA(0.90) 2.092e-02  STA-MPI(0.90) 2.966e-02  ratio 1.42 | ||Phi^+ e||/||Phi^T e|| ~ 0.706
+   SNR 40 dB: SHA(0.95) 1.176e-02  STA-MPI(0.88) 9.860e-03  ratio 0.84 | SHA(0.90) 6.635e-03  STA-MPI(0.90) 9.438e-03  ratio 1.42 | ||Phi^+ e||/||Phi^T e|| ~ 0.706
+   SNR 60 dB: SHA(0.95) 1.154e-02  STA-MPI(0.88) 9.883e-04  ratio 0.09 | SHA(0.90) 6.659e-04  STA-MPI(0.90) 9.469e-04  ratio 1.42 | ||Phi^+ e||/||Phi^T e|| ~ 0.706
+author: IHT with norm exponent (m,n,k=64,128,16, alpha = 1/sigma_1^2, 400 trials); value = RMSRE (fraction with rel. err < 1e-3)
+   100 iterations:
+      H_k(LLS)                     0.6249 (0.000)
+      IHT (zero)                   0.2905 (0.000)
+      IHT (LLS)                    0.2744 (0.000)
+      IHT-FNR p=0.5 lam=5e-07      0.2743 (0.000)
+      IHT-FNR p=0.5 lam=5e-05      0.2731 (0.000)
+      IHT-FNR p=0.5 lam=5e-04      0.2654 (0.000)
+      IHT-FNR p=0.5 lam=5e-03      0.1837 (0.000)
+      IHT-FNR p=0.5 lam=2e-02      0.2348 (0.000)
+      IHT-FNR p=0.5 lam=5e-02      0.4239 (0.000)
+      IHT-FNR p=0.9 lam=5e-07      0.2743 (0.000)
+      IHT-FNR p=0.9 lam=5e-05      0.2739 (0.000)
+      IHT-FNR p=0.9 lam=5e-04      0.2721 (0.000)
+      IHT-FNR p=0.9 lam=5e-03      0.2444 (0.000)
+      IHT-FNR p=0.9 lam=2e-02      0.2157 (0.000)
+      IHT-FNR p=0.9 lam=5e-02      0.3272 (0.000)
+   1000 iterations:
+      IHT (zero)                   0.2721 (0.260)
+      IHT (LLS)                    0.2604 (0.225)
+      IHT-FNR p=0.9 lam=5e-07      0.2604 (0.225)
+      IHT-FNR p=0.5 lam=5e-03      0.1531 (0.000)
+      IHT-FNR p=0.9 lam=2e-02      0.1982 (0.000)
+saved fig05-runtime
+runtime (s) for n = [256, 512, 1024, 2048, 4096] (m = n/4, k = n/32)
+   BP (LP)    0.0169   0.0868   0.6438   5.9387      nan  slope(log2)=2.83  rel.err: 2e-11 8e-12 3e-13 5e-13 nan
+   FISTA      0.0061   0.0165   0.0707   0.5333   2.3754  slope(log2)=2.22  rel.err: 6e-01 3e-01 2e-01 2e-01 2e-01
+   OMP        0.0004   0.0013   0.0095   0.0918   0.6949  slope(log2)=2.77  rel.err: 1e-15 1e-15 1e-15 3e-15 2e-15
+   CoSaMP     0.0003   0.0020   0.0099   0.0423   0.1639  slope(log2)=2.23  rel.err: 9e-16 2e-15 1e-15 2e-15 2e-15
+   NIHT       0.0013   0.0033   0.0159   0.1065   0.3487  slope(log2)=2.12  rel.err: 7e-13 6e-13 5e-13 9e-13 8e-13
+   AMP        0.0004   0.0008   0.0035   0.0228   0.0839  slope(log2)=2.01  rel.err: 2e-04 1e-04 7e-04 1e-03 4e-04

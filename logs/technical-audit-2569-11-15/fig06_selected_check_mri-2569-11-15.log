@@ -1,0 +1,10 @@
+selected-check mri: selected multipliers from logs/fig06_mri_rerun-2569-11-15.log
+   phantom wavelet                    lam_w 3e-03 lam_t 0e+00: PSNR 27.96 dB, iterations  5460, converged True, r_pri/eps_pri 0.07, s_dual/eps_dual 0.99
+   phantom TV                         lam_w 0e+00 lam_t 1e-03: PSNR 52.42 dB, iterations  1190, converged True, r_pri/eps_pri 0.48, s_dual/eps_dual 0.98
+   phantom TV + wavelet               lam_w 1e-06 lam_t 1e-03: PSNR 52.41 dB, iterations  1380, converged True, r_pri/eps_pri 0.25, s_dual/eps_dual 1.00
+   phantom equispaced TV              lam_w 0e+00 lam_t 1e-03: PSNR 15.11 dB, iterations   240, converged True, r_pri/eps_pri 0.95, s_dual/eps_dual 0.25
+   phantom uniform random TV          lam_w 0e+00 lam_t 1e-03: PSNR 52.44 dB, iterations   610, converged True, r_pri/eps_pri 0.93, s_dual/eps_dual 0.66
+   textured wavelet                   lam_w 3e-05 lam_t 0e+00: PSNR 34.59 dB, iterations  7840, converged True, r_pri/eps_pri 0.05, s_dual/eps_dual 1.00
+   textured TV                        lam_w 0e+00 lam_t 1e-03: PSNR 39.83 dB, iterations   650, converged True, r_pri/eps_pri 0.30, s_dual/eps_dual 0.97
+   textured TV + wavelet              lam_w 3e-05 lam_t 1e-03: PSNR 39.83 dB, iterations   790, converged True, r_pri/eps_pri 0.06, s_dual/eps_dual 0.96
+   selected solves: 8, converged 8, max iterations 7840

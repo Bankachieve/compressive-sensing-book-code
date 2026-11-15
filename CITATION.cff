@@ -1,0 +1,15 @@
+cff-version: 1.2.0
+message: "If you use this code, please cite it using the metadata below."
+title: "Source code for the book การรับรู้เชิงบีบอัด (Compressive Sensing)"
+type: software
+authors:
+  - family-names: Asavaskulkiet
+    given-names: Krissada
+    affiliation: "Mahidol University"
+version: "1.0.0"
+date-released: "2026-11-15"
+license: MIT
+keywords:
+  - compressive sensing
+  - sparse signal processing
+  - reproducible research

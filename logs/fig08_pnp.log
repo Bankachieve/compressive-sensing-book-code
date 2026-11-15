@@ -1,0 +1,13 @@
+pnp: 128x128 images, n/m = 4, variable-density rows, k-space noise sigma = 0.004; all parameters tuned on a grid (oracle)
+     denoiser: non-local means (scikit-image, patch 5, distance 6, h = 0.8 sigma); rho = 1; 100 iterations; wavelet and TV baselines solved to convergence (ch. 6 criterion)
+     PnP-fixed: sigma_t = sigma_d constant; PnP-cont.: sigma_t = max(sigma_d, 0.2 x 0.85^t)
+   phantom   zero-filled 19.57  wavelet 23.97 (lam_w 3e-03)  TV 42.79 (lam_t 3e-04)  PnP-fixed 32.92 (sigma_d 0.04)  PnP-cont. 32.96 dB (sigma_end 0.04)
+   phantom   PSNR after 10 / 20 / 50 / 100 iterations: fixed 27.63 / 29.35 / 31.20 / 32.92;  cont. 26.64 / 29.17 / 31.27 / 32.96
+   phantom   relative change of x at the last iteration: fixed 6.1e-04, cont. 5.7e-04
+   check at lam_t = 3e-03: PnP with prox_(lam_t TV), 800 iterations 39.26 dB vs converged TV-ADMM (5380 iterations, eps_rel 1e-7) 39.32 dB (TV-ADMM with fixed rho = 0.5, 200 iterations 35.06 dB), ||difference|| / ||image|| = 7.6e-04
+   textured  zero-filled 28.96  wavelet 31.95 (lam_w 1e-05)  TV 37.96 (lam_t 3e-04)  PnP-fixed 34.50 (sigma_d 0.02)  PnP-cont. 34.75 dB (sigma_end 0.01)
+   textured  PSNR after 10 / 20 / 50 / 100 iterations: fixed 33.39 / 33.97 / 34.39 / 34.50;  cont. 31.55 / 34.73 / 34.91 / 34.75
+   textured  relative change of x at the last iteration: fixed 8.5e-05, cont. 1.7e-04
+   [341 s]
+saved fig08-pnp
+DONE

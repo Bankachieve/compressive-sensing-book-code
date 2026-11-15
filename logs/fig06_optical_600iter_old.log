@@ -1,0 +1,38 @@
+optical: single-pixel camera, image 64x64 (n = 4096), sparsity basis db4 (level 3)
+   m/n = 0.10  Bernoulli            PSNR per trial  10.9   9.9   9.8
+   m/n = 0.10  Hadamard             PSNR per trial  20.1  15.6  18.3
+   m/n = 0.10  Hadamard, no DC row  PSNR per trial   5.3   5.6   5.5
+   m/n = 0.20  Bernoulli            PSNR per trial  25.1  25.9  25.0
+   m/n = 0.20  Hadamard             PSNR per trial  16.4  19.4  21.6
+   m/n = 0.20  Hadamard, no DC row  PSNR per trial   5.5   5.7   5.5
+   m/n = 0.30  Bernoulli            PSNR per trial  28.4  28.2  28.4
+   m/n = 0.30  Hadamard             PSNR per trial  20.6  24.3  24.9
+   m/n = 0.30  Hadamard, no DC row  PSNR per trial   6.2   6.3   5.5
+   m/n = 0.45  Bernoulli            PSNR per trial  32.1  33.0  32.0
+   m/n = 0.45  Hadamard             PSNR per trial  27.4  26.5  28.1
+   m/n = 0.45  Hadamard, no DC row  PSNR per trial   6.4   5.7   6.3
+   m/n = 0.60  Bernoulli            PSNR per trial  36.0  36.1  35.7
+   m/n = 0.60  Hadamard             PSNR per trial  31.7  31.6  31.7
+   m/n = 0.60  Hadamard, no DC row  PSNR per trial   6.4   6.4   6.3
+   Bernoulli            mean PSNR (dB) at m/n = 0.10: 10.2 0.20: 25.4 0.30: 28.3 0.45: 32.4 0.60: 35.9
+   Hadamard             mean PSNR (dB) at m/n = 0.10: 18.0 0.20: 19.1 0.30: 23.3 0.45: 27.3 0.60: 31.7
+   Hadamard, no DC row  mean PSNR (dB) at m/n = 0.10:  5.5 0.20:  5.6 0.30:  6.0 0.45:  6.1 0.60:  6.4
+optical: noise folding, m = 1433 (0.35n) measurements, same detector noise per measurement
+   sigma 1.0e-04: multiplexed 30.49 dB   direct pixel sampling 26.39 dB   gain +4.10 dB
+   sigma 3.0e-04: multiplexed 30.48 dB   direct pixel sampling 26.40 dB   gain +4.08 dB
+   sigma 1.0e-03: multiplexed 30.49 dB   direct pixel sampling 26.59 dB   gain +3.90 dB
+   sigma 3.0e-03: multiplexed 30.49 dB   direct pixel sampling 26.37 dB   gain +4.12 dB
+   sigma 1.0e-02: multiplexed 30.50 dB   direct pixel sampling 24.72 dB   gain +5.79 dB
+   sigma 3.0e-02: multiplexed 30.51 dB   direct pixel sampling 19.70 dB   gain +10.81 dB
+optical: CASSI, cube 32x32x16 (N = 16384); each snapshot gives 1504 detector pixels
+   K = 1: compression 0.092  separable l1  best lambda 1e-03  PSNR 15.91 dB
+   K = 1: compression 0.092  joint l2,1    best lambda 3e-03  PSNR 17.67 dB
+   K = 2: compression 0.184  separable l1  best lambda 3e-03  PSNR 18.39 dB
+   K = 2: compression 0.184  joint l2,1    best lambda 1e-02  PSNR 22.25 dB
+   K = 4: compression 0.367  separable l1  best lambda 1e-02  PSNR 27.81 dB
+   K = 4: compression 0.367  joint l2,1    best lambda 1e-02  PSNR 27.05 dB
+   K = 8: compression 0.734  separable l1  best lambda 3e-03  PSNR 37.66 dB
+   K = 8: compression 0.734  joint l2,1    best lambda 1e-02  PSNR 36.51 dB
+   per-band PSNR at K = 4 (joint): 31.5 25.5 27.5 27.2 26.8 27.9
+saved fig06-optical
+DONE

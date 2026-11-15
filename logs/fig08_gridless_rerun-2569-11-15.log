@@ -1,0 +1,23 @@
+gridless: n = 64, k = 5, minimum separation 0.0667 = 1/floor((n-1)/4), m = 32 random samples, noiseless
+   true frequencies      [0.1594 0.2802 0.6433 0.7661 0.9328]
+   ANM (ESPRIT on Toep)  [0.1594 0.2802 0.6433 0.7661 0.9328]   max error 8.63e-11   SDP time 9.5 s
+   OMP grid r=1          [0.1562 0.2812 0.6406 0.7656 0.9375]
+   OMP grid r=4          [0.1602 0.2812 0.6445 0.7656 0.9336]
+   ANM      NMSE of full signal  -164.0 dB
+   OMP r=1  NMSE of full signal   -11.0 dB
+   OMP r=4  NMSE of full signal   -18.7 dB
+   ... m = 12 done (285 s)
+   ... m = 16 done (465 s)
+   ... m = 20 done (607 s)
+   ... m = 24 done (680 s)
+   ... m = 32 done (743 s)
+   ... m = 40 done (806 s)
+gridless: NMSE (median over 15 trials, dB) and success rate (NMSE < -40 dB) versus m   [806 s]
+   SDP solver status over 91 solves: optimal 91
+   m               12     16     20     24     32     40
+   ANM           -2.8  -12.8 -162.1 -164.5 -170.5 -173.4   | 0.00 0.33 0.80 1.00 1.00 1.00
+   OMP r=1        0.4   -1.8   -2.0   -6.9   -6.0   -6.5   | 0.00 0.00 0.00 0.00 0.00 0.00
+   OMP r=4       -0.9   -8.7  -12.5  -12.3  -15.9  -15.4   | 0.00 0.00 0.00 0.00 0.00 0.00
+   OMP r=16       0.8   -9.9  -12.8  -15.0  -18.0  -19.2   | 0.00 0.00 0.00 0.00 0.00 0.00
+saved fig08-gridless
+DONE

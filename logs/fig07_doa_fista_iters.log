@@ -1,0 +1,4 @@
+coherent=True snr 0: iterations [15470, 4880, 6110, 5950, 3890]  (0.4 s/solve)
+coherent=True snr 10: iterations [42050, 57570, 19920, 43680, 26860]  (1.8 s/solve)
+coherent=True snr 20: iterations [192330, 182620, 87300, 142440, 113220]  (6.8 s/solve)
+coherent=True snr 25: iterations [200000, 200000, 200000, 200000, 200000]  (9.4 s/solve)

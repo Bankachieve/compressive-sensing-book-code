@@ -1,0 +1,10 @@
+spectrum: L = 64 spectral cells, K = 6 occupied, T = 20 columns, SNR 20.0 dB, 400 trials
+   SOMP (all columns)   success at p = 6:0.00 8:0.02 10:0.44 12:0.87 14:0.97 16:0.99 20:1.00 24:1.00 28:1.00 32:1.00
+   l21 (all columns)    success at p = 6:0.63 8:0.97 10:1.00 12:1.00 14:1.00 16:1.00 20:1.00 24:1.00 28:1.00 32:1.00
+   OMP (one column)     success at p = 6:0.00 8:0.00 10:0.02 12:0.18 14:0.42 16:0.63 20:0.87 24:0.90 28:0.93 32:0.95
+   l21 solved to relative duality gap 1e-06: iterations median 50, max 5850 (4000 solves)
+saved fig07-spectrum
+doa: ULA M = 10, T = 50 snapshots, sources at [0.25 6.25] deg (beamwidth ~ 11.5 deg), grid step 0.5 deg
+   uncorrelated beamforming  P(resolve) at SNR = -5:0.00 0:0.00 5:0.00 10:0.00 15:0.00 20:0.00 25:0.00
+   uncorrelated MUSIC        P(resolve) at SNR = -5:0.10 0:0.70 5:1.00 10:1.00 15:1.00 20:1.00 25:1.00
+   uncorrelated l1-SVD       P(resolve) at SNR = -5:0.61 0:0.96 5:1.00 10:1.00 15:0.99 20:0.99 25:0.99

@@ -1,0 +1,80 @@
+coherence: global mu(F,Psi) = 4.000 (n = 256, db4, 4 levels); max over |q| < 0.05 = 4.000; max over |q| > 0.25 = 1.414
+saved fig06-coherence
+   scaling  : peak local coherence 4.00 at |q| = 0.000,  mean over |q| > 0.25 = 0.00
+   level 4  : peak local coherence 3.73 at |q| = 0.043,  mean over |q| > 0.25 = 0.02
+   level 3  : peak local coherence 2.64 at |q| = 0.086,  mean over |q| > 0.25 = 0.08
+   level 2  : peak local coherence 1.87 at |q| = 0.176,  mean over |q| > 0.25 = 0.38
+   level 1  : peak local coherence 1.41 at |q| = 0.500,  mean over |q| > 0.25 = 1.35
+sampling: n = 256, acceleration R = 4 (phase-encode rows kept = 64)
+   equispaced       : peak PSF sidelobe 1.000;  TPSF sidelobe  scaling atom (level 4) 1.000  detail atom, decomposition level 2 1.000  finest detail atom (level 1) 1.000
+   uniform random   : peak PSF sidelobe 0.230;  TPSF sidelobe  scaling atom (level 4) 0.523  detail atom, decomposition level 2 0.237  finest detail atom (level 1) 0.312
+   variable density : peak PSF sidelobe 0.608;  TPSF sidelobe  scaling atom (level 4) 0.162  detail atom, decomposition level 2 0.213  finest detail atom (level 1) 0.587
+saved fig06-sampling
+   [note] tuned multiplier 1e-06 still lies on the edge of the searched values
+saved fig06-mri
+mri: phantom 256x256, n/m = 4, variable density, k-space noise sigma = 0.004; ADMM run to convergence (Boyd primal/dual residual criterion, eps_rel = 1e-06, eps_abs = 1e-7, residual balancing of rho for the first 1000 iterations, at most 10000 iterations); multipliers tuned on the grid [0.0001, 0.0003, 0.001, 0.003, 0.01, 0.03]
+   zero-filled   PSNR 20.90 dB   normalized error 0.3660   lam_w 0e+00  lam_t 0e+00
+   wavelet       PSNR 27.96 dB   normalized error 0.1625   lam_w 3e-03  lam_t 0e+00   (fixed rho = 0.5, 200 iterations, same multipliers: 25.98 dB)
+   TV            PSNR 52.42 dB   normalized error 0.0097   lam_w 0e+00  lam_t 1e-03   (fixed rho = 0.5, 200 iterations, same multipliers: 35.06 dB)
+   TV + wavelet  PSNR 52.41 dB   normalized error 0.0097   lam_w 1e-06  lam_t 1e-03   (fixed rho = 0.5, 200 iterations, same multipliers: 29.34 dB)
+   TV with fixed rho = 0.5: PSNR after 10 / 50 / 200 iterations: 23.68 / 28.06 / 35.06 dB
+   iterations to convergence over the tuning grid so far: median 1805, max 10000
+mri: same budget, three sampling patterns (TV, lambda_t tuned on the grid for each pattern)
+   equispaced        zero-filled 15.11 dB   TV 15.11 dB (lam_t 1e-03)   DC row sampled: True
+   uniform random    zero-filled 15.60 dB   TV 52.44 dB (lam_t 1e-03)   DC row sampled: True
+   variable density  zero-filled 20.90 dB   TV 52.42 dB (lam_t 1e-03)   DC row sampled: True
+mri: textured image, n/m = 4, variable density
+   zero-filled   PSNR 29.29 dB
+   wavelet       PSNR 34.59 dB   lam_w 3e-05  lam_t 0e+00
+   TV            PSNR 39.83 dB   lam_w 0e+00  lam_t 1e-03
+   TV + wavelet  PSNR 39.83 dB   lam_w 3e-05  lam_t 1e-03
+   iterations to convergence over all tuning runs: median 1395, max 10000, runs 122
+mri: PSNR (dB) versus acceleration n/m (TV, lambda_t tuned on the grid at every point, ADMM run to convergence)
+   phantom   n/m =          2     3     4     6     8    12
+   phantom   zero-filled 28.2  23.9  20.9  19.3  18.1  16.2
+   phantom   TV          57.8  54.2  52.4  49.9  48.2  44.2
+   textured  n/m =          2     3     4     6     8    12
+   textured  zero-filled 36.5  32.0  29.3  26.8  24.5  18.4
+   textured  TV          47.9  44.5  39.8  37.7  35.1  27.2
+   iterations to convergence over all tuning runs: median 1480, max 10000, runs 195
+saved fig06-acceleration
+denoise: textured image 128x128, sigma = 0.1, noisy PSNR 20.16 dB
+   universal threshold sigma*sqrt(2 log n^2) = 0.4405 (4.41 sigma); empirically best threshold 0.1625 (1.62 sigma)
+   OMP error bound C = 0.55 (0.440): fixed DCT dictionary PSNR 25.31 dB, mean sparsity 6.00
+   OMP error bound C = 0.70 (0.560): fixed DCT dictionary PSNR 25.46 dB, mean sparsity 5.73
+   OMP error bound C = 0.85 (0.680): fixed DCT dictionary PSNR 26.98 dB, mean sparsity 3.80
+   OMP error bound C = 1.00 (0.800): fixed DCT dictionary PSNR 29.64 dB, mean sparsity 1.56
+   OMP error bound C = 1.15 (0.920): fixed DCT dictionary PSNR 30.34 dB, mean sparsity 0.60
+   OMP error bound C = 1.30 (1.040): fixed DCT dictionary PSNR 29.65 dB, mean sparsity 0.37
+   OMP error bound C = 1.50 (1.200): fixed DCT dictionary PSNR 28.71 dB, mean sparsity 0.23
+   patch dictionary: 64x144 atoms, 3721 patches (8x8, step 2), K-SVD on 3000 patches, 8 iterations, 2 s, OMP error bound 0.920; mean sparsity fixed 0.60, learned 0.37
+   TV lambda grid [0.03, 0.05, 0.08, 0.12, 0.18], best = 0.08
+   noisy                 PSNR 20.16 dB
+   wavelet, universal    PSNR 24.76 dB
+   wavelet, best         PSNR 27.60 dB
+   cycle spinning        PSNR 28.56 dB
+   cycle spinning, universal PSNR 24.93 dB
+   TV                    PSNR 31.54 dB
+   DCT dictionary        PSNR 30.34 dB
+   learned dictionary    PSNR 30.92 dB
+saved fig06-denoise
+saved fig06-threshold
+irls: textured image at five resolutions, m = 0.45n Gaussian measurements, sparsity basis db4; FISTA 600 iterations (lambda = 0.001), IHT 600 iterations, IRLS-DR 100 iterations (p = 0.9, xi = 1e-6)
+/usr/local/lib/python3.13/site-packages/pywt/_multilevel.py:43: UserWarning: Level value of 3 is too high: all coefficients will experience boundary effects.
+  warnings.warn(
+   32x32 (n =  1024, m =  460, k99 =   49; IRLS-DR build 0.34 s, 0.016 s/iteration): FISTA 0.1020 /    0.40 s   IHT 0.1336 /    0.42 s   IRLS-DR 0.1097 /    1.98 s   
+   40x40 (n =  1600, m =  720, k99 =   55; IRLS-DR build 0.89 s, 0.058 s/iteration): FISTA 0.0800 /    0.71 s   IHT 0.1191 /    0.77 s   IRLS-DR 0.0885 /    6.68 s   
+   48x48 (n =  2304, m = 1036, k99 =   91; IRLS-DR build 2.30 s, 0.155 s/iteration): FISTA 0.0773 /    1.20 s   IHT 0.1222 /    1.23 s   IRLS-DR 0.0838 /   17.77 s   
+   56x56 (n =  3136, m = 1411, k99 =   61; IRLS-DR build 4.99 s, 0.390 s/iteration): FISTA 0.0499 /    2.08 s   IHT 0.1104 /    2.06 s   IRLS-DR 0.0582 /   43.95 s   
+   64x64 (n =  4096, m = 1843, k99 =   62; IRLS-DR build 10.91 s, 0.824 s/iteration): FISTA 0.0438 /    3.37 s   IHT 0.1063 /    3.21 s   IRLS-DR 0.0484 /   93.33 s   
+irls: tuning at the largest size (64x64), same measurements
+   IRLS-DR p = 0.5: normalized error 0.0853 (30 it), 0.0854 (100 it), 0.0854 (200 it)
+   IRLS-DR p = 0.8: normalized error 0.0576 (30 it), 0.0574 (100 it), 0.0574 (200 it)
+   IRLS-DR p = 0.9: normalized error 0.0493 (30 it), 0.0484 (100 it), 0.0484 (200 it)
+   IRLS-DR p = 1.0: normalized error 0.0461 (30 it), 0.0447 (100 it), 0.0444 (200 it)
+   FISTA lambda = 3e-04: normalized error 0.0523 (600 it), 0.0441 (2000 it)
+   FISTA lambda = 1e-03: normalized error 0.0438 (600 it), 0.0440 (2000 it)
+   FISTA lambda = 3e-03: normalized error 0.0439 (600 it), 0.0439 (2000 it)
+   fitted cost exponent (log-log slope of time vs n): FISTA 1.54, IRLS-DR 2.78  (theory: FISTA O(mn) -> 2, IRLS-DR O(m^2 n) -> 3)
+   extrapolating the measured IRLS-DR time by the O(m^2 n) law to the image of the author's paper (153x143, m = 10940, 100 iterations): 4.9 h (the paper reports 22,890 s = 6.4 h)
+saved fig06-irls

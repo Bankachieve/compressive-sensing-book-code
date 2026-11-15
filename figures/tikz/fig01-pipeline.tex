@@ -1,0 +1,60 @@
+% ภาพที่ 1.4 กระบวนการของการรับรู้เชิงบีบอัด (แผนภาพ TikZ ต้นฉบับของผู้แต่ง)
+% ไวยากรณ์ภาพ: กล่องขาว = ข้อมูล, กล่องน้ำเงิน = ตัวดำเนินการ, กล่องเทา = การประยุกต์
+\begin{tikzpicture}[
+  ttl/.style={font=\small\bfseries, text=dgInk, align=center, inner sep=0pt},
+  ttlw/.style={font=\small\bfseries, text=white, align=center, inner sep=0pt},
+  sub/.style={font=\footnotesize, text=dgInk, align=center, inner sep=0pt},
+  subw/.style={font=\footnotesize, text=white, align=center, inner sep=0pt},
+  lbl/.style={font=\scriptsize, text=dgLine, anchor=west, inner sep=1pt},
+]
+% ---- แถบพื้นหลังของสองขั้น ----
+\fill[dgSlate, rounded corners=6pt] (-0.20,1.72) rectangle (14.10,-1.30);
+\fill[dgFillLt, rounded corners=6pt] (-0.20,-1.50) rectangle (14.10,-4.62);
+\node[dg band label] at (-0.02,1.58) {ขั้นการวัด (ฝั่งเข้ารหัส)};
+\node[dg band label] at (-0.02,-1.64) {ขั้นการกู้คืน (ฝั่งถอดรหัส)};
+% ---- แถวบน: สัญญาณ -> การวัด -> ผลการวัด ----
+\draw[dg data] (0.00,1.12) rectangle (3.90,-0.98);
+\node[ttl] at (1.95,0.86) {สัญญาณเบาบาง};
+\node[sub] at (1.95,0.42) {$\mathbf{x} = \boldsymbol{\Psi}\mathbf{s},\ \ \|\mathbf{s}\|_0 \le k$};
+\dgstems{0.93}{-0.30}{0.13}{dgInk}{0,0,1.2,0,0,0,0,-0.9,0,0,0,0,1.5,0,0}
+\node[lbl] at (2.89,-0.30) {$\mathbf{s}$};
+\draw[dg op] (5.00,1.12) rectangle (8.90,-0.98);
+\node[ttlw] at (6.95,0.86) {การวัดเชิงเส้น};
+\node[subw] at (6.95,0.42) {$\mathbf{y} = \boldsymbol{\Phi}\mathbf{x} + \mathbf{e}$};
+\pgfmathsetseed{11}
+\foreach \r in {0,...,3} {\foreach \c in {0,...,13} {%
+  \pgfmathsetmacro{\op}{0.18+0.62*rnd}%
+  \fill[white, fill opacity=\op] ({5.90+\c*0.15},{-0.64+\r*0.15}) rectangle ++(0.13,0.13);}}
+\node[lbl, text=white] at (8.03,-0.34) {$\boldsymbol{\Phi}$};
+\draw[dg data] (10.00,1.12) rectangle (13.90,-0.98);
+\node[ttl] at (11.95,0.86) {ผลการวัด};
+\node[sub] at (11.95,0.42) {$\mathbf{y} \in \mathbb{R}^{m},\ \ m \ll n$};
+\dgstems{11.61}{-0.30}{0.135}{dgInk}{0.7,-0.8,1.1,0.4,-0.6,0.9}
+\node[lbl] at (12.43,-0.30) {$\mathbf{y}$};
+% ---- แถวล่าง: การกู้คืน -> สัญญาณกู้คืน -> การประยุกต์ ----
+\draw[dg op] (10.00,-2.14) rectangle (13.90,-4.24);
+\node[ttlw] at (11.95,-2.40) {ขั้นตอนวิธีกู้คืน};
+\node[subw] at (11.95,-2.84) {$\mathbf{y} \;\longmapsto\; \hat{\mathbf{s}}$};
+\draw[white, line width=0.4pt, opacity=0.55] (10.45,-3.13) -- (13.45,-3.13);
+\node[subw] at (11.95,-3.52) {คอนเวกซ์ \,$\cdot$\, ละโมบ\\[-1pt] ขีดเริ่มเปลี่ยน};
+\draw[dg data] (5.00,-2.14) rectangle (8.90,-4.24);
+\node[ttl] at (6.95,-2.40) {สัญญาณกู้คืน};
+\node[sub] at (6.95,-2.84) {$\hat{\mathbf{x}} = \boldsymbol{\Psi}\hat{\mathbf{s}}$};
+\dgstems{5.93}{-3.56}{0.13}{dgAcc}{0,0,1.2,0,0,0,0,-0.9,0,0,0,0,1.5,0,0}
+\node[lbl] at (7.89,-3.56) {$\hat{\mathbf{s}}$};
+\draw[dg app] (0.00,-2.14) rectangle (3.90,-4.24);
+\node[ttl] at (1.95,-2.40) {การประยุกต์};
+\node[sub, text=dgLine] at (1.95,-3.30) {ภาพและภาพทางการแพทย์\\[-1pt] การสื่อสาร\\[-1pt] ระบบไฟฟ้ากำลัง};
+% ---- ลูกศรแสดงการไหลของข้อมูล ----
+\draw[dg arrow] (3.90,0.07) -- (5.00,0.07);
+\draw[dg arrow] (8.90,0.07) -- (10.00,0.07);
+\draw[dg arrow] (11.95,-0.98) -- (11.95,-2.14)
+  node[midway, left=3pt, font=\scriptsize, text=dgLine] {ส่ง/จัดเก็บ $m$ ค่า};
+\draw[dg arrow] (10.00,-3.19) -- (8.90,-3.19);
+\draw[dg arrow] (5.00,-3.19) -- (3.90,-3.19);
+% ---- ป้ายบทที่อภิปรายแต่ละขั้น ----
+\node[dg badge] at (1.95,-0.98) {บทที่ \ref{ch:math}};
+\node[dg badge] at (6.95,-0.98) {บทที่ \ref{ch:theory}};
+\node[dg badge] at (11.95,-4.24) {บทที่ \ref{ch:convex}--\ref{ch:greedy}};
+\node[dg badge] at (1.95,-4.24) {บทที่ \ref{ch:imaging}--\ref{ch:frontier}};
+\end{tikzpicture}

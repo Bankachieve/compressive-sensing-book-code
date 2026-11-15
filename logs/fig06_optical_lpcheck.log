@@ -1,0 +1,6 @@
+m/n = 0.30 Hadamard  trial 0: LP 251 s  ||c||_1 321.50134537  PSNR 12.41 dB
+m/n = 0.30 Hadamard  trial 1: LP 196 s  ||c||_1 324.05054827  PSNR 24.36 dB
+m/n = 0.30 nodc      trial 1: LP 156 s  ||c||_1 113.24991719  PSNR 6.26 dB
+m/n = 0.30 nodc      trial 2: LP 171 s  ||c||_1 77.56925615  PSNR 5.47 dB
+m/n = 0.45 nodc      trial 0: LP 556 s  ||c||_1 127.32042223  PSNR 6.35 dB
+m/n = 0.60 nodc      trial 1: LP 624 s  ||c||_1 141.10430508  PSNR 6.41 dB

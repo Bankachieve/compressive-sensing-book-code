@@ -1,0 +1,42 @@
+% ภาพที่ 3.2 แผนที่ความสัมพันธ์เชิงตรรกะระหว่างเงื่อนไขของเมทริกซ์การวัด (แผนภาพ TikZ ต้นฉบับของผู้แต่ง)
+% แถบบน = หลักประกันการกู้คืน, แถบกลาง = เงื่อนไขสมัยใหม่, แถบล่าง = เงื่อนไขแบบคลาสสิก
+% กล่องแรเงาและลูกศรสีน้ำเงิน = เส้นทางหลักของทฤษฎีสมัยใหม่
+\begin{tikzpicture}[
+  box/.style={dg data, minimum height=12.5mm, text width=30mm, align=center, font=\footnotesize,
+              inner sep=2pt, text=dgInk},
+  key/.style={box, draw=dgAccDk, fill=dgFill},
+  src/.style={box, draw=dgLine!70, fill=dgSlate},
+  main/.style={-{Stealth[length=2.6mm, width=1.9mm]}, line width=1.05pt, draw=dgAcc},
+  sec/.style={dg arrow, line width=0.75pt, draw=dgInk!70},
+  tag/.style={dg badge, fill=white},
+  tagm/.style={dg badge, fill=white, draw=dgAcc!70, text=dgAccDk},
+]
+% ---- แถบพื้นหลังสามระดับ ----
+\fill[dgSlate,  rounded corners=6pt] (-0.15, 1.12) rectangle (14.15,-0.80);
+\fill[dgFillLt, rounded corners=6pt] (-0.15,-1.13) rectangle (14.15,-3.17);
+\fill[dgSlate,  rounded corners=6pt] (-0.15,-3.50) rectangle (14.15,-5.54);
+\node[dg band label] at (0.02, 1.00) {หลักประกันการกู้คืน};
+\node[dg band label] at (0.02,-1.24) {เงื่อนไขสมัยใหม่};
+\node[dg band label] at (0.02,-3.61) {เงื่อนไขแบบคลาสสิก};
+% ---- แถวบน: ข้อสรุป ----
+\node[box] (stable) at (7.00, 0.00) {กู้คืนเสถียรและทนทาน\\ $(\mathrm{P}_{1,\varepsilon})$};
+\node[key] (l1)     at (12.05,0.00) {$(\mathrm{P}_1)$ กู้คืนสัญญาณ\\ $k$-เบาบางได้ทุกตัว};
+% ---- แถวกลาง: เส้นทางหลัก ----
+\node[src] (rand) at (1.95,-2.37) {เมทริกซ์สุ่ม\\ $m \gtrsim k\log(n/k)$};
+\node[key] (rip)  at (7.00,-2.37) {RIP อันดับ $2k$\\ $\delta_{2k} < \sqrt{2}-1$};
+\node[key] (nsp)  at (12.05,-2.37) {สมบัติปริภูมิสู่ศูนย์\\ อันดับ $k$};
+% ---- แถวล่าง: เงื่อนไขคลาสสิก ----
+\node[box] (uniq)  at (1.95,-4.74) {เอกลักษณ์ของผลเฉลย\\ $(\mathrm{P}_0)$};
+\node[box] (spark) at (7.00,-4.74) {สปาร์ก\\ $\mathrm{spark}(\boldsymbol{\Phi}) > 2k$};
+\node[src] (coh)   at (12.05,-4.74) {ความสอดคล้องร่วม\\ $k < \tfrac{1}{2}(1 + 1/\mu)$};
+% ---- ลูกศรเส้นทางหลัก ----
+\draw[main] (rand) -- (rip) node[tagm, midway] {ทบ.\ \ref{thm:gaussian-rip}};
+\draw[main] (rip) -- (nsp) node[tagm, midway] {ทบ.\ \ref{thm:candes}};
+\draw[main] (nsp) -- (l1) node[tagm, midway] {ทบ.\ \ref{thm:nsp}};
+\draw[main] (rip) -- (stable) node[tagm, midway] {ทบ.\ \ref{thm:candes}};
+% ---- ลูกศรเงื่อนไขคลาสสิกและเส้นเชื่อมระหว่างระดับ ----
+\draw[sec] (coh) -- (spark) node[tag, midway] {ทบ.\ \ref{thm:coherence-spark}};
+\draw[sec] (spark) -- (uniq) node[tag, midway] {ทบ.\ \ref{thm:spark}};
+\draw[sec] (rip) -- (spark) node[tag, midway] {$\delta_{2k} < 1$};
+\draw[sec] (coh) -- (nsp) node[tag, midway] {บทแทรก \ref{cor:coherence-nsp}};
+\end{tikzpicture}

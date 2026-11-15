@@ -1,0 +1,12 @@
+onebit: n = 256, k = 8, Gaussian Phi, ||x||_2 = 1, noiseless sign measurements, 100 trials   [113 s]
+   m/n                0.5     1.0     2.0     4.0     8.0    16.0
+   passive  error   0.6509  0.4404  0.2979  0.1887  0.1254  0.0768
+   BIHT     error   0.3229  0.1297  0.0524  0.0183  0.0092  0.0040
+   log-log slope for m/n >= 2: passive -0.65 (theory -0.5), BIHT -1.22
+onebit: fixed budget B = 1024 bits (B/n = 4), b bits per measurement so m = B/b, uniform quantizer on [-3, 3]   [72 s]
+   b                       1       2       3       4       6       8
+   m                    1024     512     341     256     170     128
+   SNR 40 dB error   0.0220  0.0823  0.0473  0.0266  0.0142  0.0209   best b = 6
+   SNR 10 dB error   0.0979  0.1063  0.0966  0.1018  0.1433  0.1985   best b = 3
+saved fig08-onebit
+DONE
