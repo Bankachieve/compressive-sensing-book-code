@@ -42,7 +42,7 @@
 | 4.6 | 95 | fig:irls | fig04-irls | fig04_generate.py | irls | 3 | stdout ของ fig04_generate.py |
 | 4.7 | 104 | fig:fnr | fig04-fnr | fig04_generate.py | fnr | 1, 100, 300 | stdout ของ fig04_generate.py |
 | 4.8 | 107 | fig:focuss-mse | fig04-focuss-mse | fig04_generate.py | focuss-mse | 9 | stdout ของ fig04_generate.py |
-| 4.9 | 109 | fig:runtime | fig04-runtime | fig04_generate.py | runtime | 13 | stdout ของ fig04_generate.py |
+| 4.9 | 110 | fig:runtime | fig04-runtime | fig04_generate.py | runtime | 13 | stdout ของ fig04_generate.py |
 | 5.1 | 117 | fig:omp-trace | fig05-omp-trace | fig05_generate.py | omp-trace | 21 | stdout ของ fig05_generate.py |
 | 5.2 | 125 | fig:amp | fig05-amp | fig05_generate.py | amp | 31, 32, 33 | fig05_cosamp-stop-2569-11-15.log |
 | 5.3 | 131 | fig:author-threshold | fig05-author | fig05_generate.py | author | 7 | stdout ของ fig05_generate.py |
@@ -58,7 +58,7 @@
 | 6.5 | 164 | fig:threshold | fig06-threshold | fig06_generate.py | denoise | 1, 4 | stdout ของ fig06_generate.py |
 | 6.6 | 166 | fig:denoise | fig06-denoise | fig06_generate.py | denoise | 1, 4 | stdout ของ fig06_generate.py |
 | 6.7 | 168 | fig:irls-scale | fig06-irls | fig06_generate.py | irls | 6 | fig06_irls.log |
-| 6.8 | 173 | fig:optical | fig06-optical | fig06_generate.py | irls | 6, 8, 9 | fig06_irls.log |
+| 6.8 | 174 | fig:optical | fig06-optical | fig06_generate.py | irls | 6, 8, 9 | fig06_irls.log |
 | 7.1 | 180 | fig:channel | fig07-channel | fig07_generate.py | channel | 11 | fig07_channel.log |
 | 7.2 | 182 | fig:spectrum-sensing | fig07-spectrum | fig07_generate.py | spectrum | 12 | fig07_spectrum_conv.log |
 | 7.3 | 185 | fig:doa | fig07-doa | fig07_generate.py | doa | 13 | fig07_doa.log, fig07_doa_600iter_old.log, fig07_doa_conv.log |
@@ -85,9 +85,9 @@
 | 4.1 | 77 | tab:problem-forms | จัดทำโดยผู้แต่ง (ตัวเลขจากการทดลองพิมพ์ออกโดยสคริปต์ของบทเดียวกัน) |
 | 4.2 | 96 | tab:paper-notation | จัดทำโดยผู้แต่ง (ตัวเลขจากการทดลองพิมพ์ออกโดยสคริปต์ของบทเดียวกัน) |
 | 4.3 | 98 | tab:irls-image | ตัวเลขจากบทความต้นทาง (ข้อมูลดิบไม่รวมในแพ็กเกจ) |
-| 4.4 | 102 | tab:reweighting-family | จัดทำโดยผู้แต่ง (ตัวเลขจากการทดลองพิมพ์ออกโดยสคริปต์ของบทเดียวกัน) |
+| 4.4 | 103 | tab:reweighting-family | จัดทำโดยผู้แต่ง (ตัวเลขจากการทดลองพิมพ์ออกโดยสคริปต์ของบทเดียวกัน) |
 | 4.5 | 104 | tab:fnr-noisy | จัดทำโดยผู้แต่ง (ตัวเลขจากการทดลองพิมพ์ออกโดยสคริปต์ของบทเดียวกัน) |
-| 4.6 | 108 | tab:algo-compare | จัดทำโดยผู้แต่ง (ตัวเลขจากการทดลองพิมพ์ออกโดยสคริปต์ของบทเดียวกัน) |
+| 4.6 | 109 | tab:algo-compare | จัดทำโดยผู้แต่ง (ตัวเลขจากการทดลองพิมพ์ออกโดยสคริปต์ของบทเดียวกัน) |
 | 5.1 | 115 | tab:greedy-taxonomy | จัดทำโดยผู้แต่ง (ตัวเลขจากการทดลองพิมพ์ออกโดยสคริปต์ของบทเดียวกัน) |
 | 5.2 | 126 | tab:paper-notation-greedy | จัดทำโดยผู้แต่ง (ตัวเลขจากการทดลองพิมพ์ออกโดยสคริปต์ของบทเดียวกัน) |
 | 5.3 | 127 | tab:homotopy-family | สรุปจากเอกสารอ้างอิง |

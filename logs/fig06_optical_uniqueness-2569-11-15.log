@@ -1,0 +1,36 @@
+optical-uniqueness: Hadamard rows (DC row kept), noiseless basis pursuit in the db4 domain; ||c_true||_1 = 371.8053
+m/n = 0.10 (m = 409)
+   trial 0:
+      HiGHS-IPM (book)     ||c||_1 = 296.73118256   residual 7.1e-13   nnz(|c|>1e-8) =  409   PSNR  11.74 dB
+      HiGHS dual simplex   ||c||_1 = 296.73118256   residual 5.6e-13   nnz(|c|>1e-8) =  409   PSNR  11.74 dB
+      Clarabel             ||c||_1 = 296.73118523   residual 2.4e-16   nnz(|c|>1e-8) =  598   PSNR  11.74 dB
+      optimal set (||c||_1 <= 296.73118285): PSNR from  11.74 to  11.74 dB along <c, c_true>; ||c_near - c_far|| / ||c_true|| = 0.001
+      near-optimal set (||c||_1 <= opt (1 + 1e-7)): minimum-l2-norm solution PSNR  11.75 dB; best attainable PSNR  11.75 dB
+   trial 1:
+      HiGHS-IPM (book)     ||c||_1 = 293.58773502   residual 4.9e-14   nnz(|c|>1e-8) =  409   PSNR   9.44 dB
+      HiGHS dual simplex   ||c||_1 = 293.58773502   residual 6.8e-15   nnz(|c|>1e-8) =  409   PSNR   9.44 dB
+      Clarabel             ||c||_1 = 293.58773928   residual 2.9e-16   nnz(|c|>1e-8) =  740   PSNR   9.44 dB
+      optimal set (||c||_1 <= 293.58773531): PSNR from   9.44 to   9.44 dB along <c, c_true>; ||c_near - c_far|| / ||c_true|| = 0.002
+      near-optimal set (||c||_1 <= opt (1 + 1e-7)): minimum-l2-norm solution PSNR   9.46 dB; best attainable PSNR   9.46 dB
+   trial 2:
+      HiGHS-IPM (book)     ||c||_1 = 292.57270989   residual 2.1e-14   nnz(|c|>1e-8) =  409   PSNR  10.00 dB
+      HiGHS dual simplex   ||c||_1 = 292.57270989   residual 1.3e-14   nnz(|c|>1e-8) =  409   PSNR   9.93 dB
+      Clarabel             ||c||_1 = 292.57271479   residual 2.4e-16   nnz(|c|>1e-8) =  846   PSNR  16.38 dB
+      optimal set (||c||_1 <= 292.57271018): PSNR from   9.27 to  11.04 dB along <c, c_true>; ||c_near - c_far|| / ||c_true|| = 1.010
+      near-optimal set (||c||_1 <= opt (1 + 1e-7)): minimum-l2-norm solution PSNR  16.84 dB; best attainable PSNR  17.42 dB
+m/n = 0.20 (m = 819)
+   trial 0:
+      HiGHS-IPM (book)     ||c||_1 = 312.93725468   residual 9.5e-12   nnz(|c|>1e-8) =  819   PSNR   7.77 dB
+      HiGHS dual simplex   ||c||_1 = 312.93725468   residual 9.5e-12   nnz(|c|>1e-8) =  819   PSNR   7.77 dB
+      Clarabel             ||c||_1 = 312.93726235   residual 8.8e-16   nnz(|c|>1e-8) = 1610   PSNR   7.77 dB
+      optimal set (||c||_1 <= 312.93725500): PSNR from   7.77 to   7.77 dB along <c, c_true>; ||c_near - c_far|| / ||c_true|| = 0.001
+   trial 1:
+      HiGHS-IPM (book)     ||c||_1 = 308.85923835   residual 2.2e-12   nnz(|c|>1e-8) =  819   PSNR  15.05 dB
+      HiGHS dual simplex   ||c||_1 = 308.85923835   residual 2.2e-12   nnz(|c|>1e-8) =  819   PSNR  15.05 dB
+      Clarabel             ||c||_1 = 308.85925692   residual 4.6e-15   nnz(|c|>1e-8) = 2457   PSNR  15.05 dB
+      optimal set (||c||_1 <= 308.85923865): PSNR from  15.05 to  15.05 dB along <c, c_true>; ||c_near - c_far|| / ||c_true|| = 0.000
+   trial 2:
+      HiGHS-IPM (book)     ||c||_1 = 309.78359145   residual 8.9e-13   nnz(|c|>1e-8) =  819   PSNR  10.78 dB
+      HiGHS dual simplex   ||c||_1 = 309.78359145   residual 4.4e-12   nnz(|c|>1e-8) =  819   PSNR  10.78 dB
+      Clarabel             ||c||_1 = 309.78359658   residual 5.2e-16   nnz(|c|>1e-8) = 1343   PSNR  10.78 dB
+   [stopped at the 1-hour limit before the optimal-set check of m/n = 0.20 trial 2; the three solvers agree at 10.78 dB]

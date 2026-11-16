@@ -1,0 +1,12 @@
+metric-check (1): PSNR + 20 log10(nerr) from the published tables
+   IHT      offset   8.17 dB  -> implied RMS(X0) = 255 / 10^(offset/20) =   99.6
+   IRLS     offset   2.58 dB  -> implied RMS(X0) = 255 / 10^(offset/20) =  189.5
+   IRLS-DR  offset  -0.75 dB  -> implied RMS(X0) = 255 / 10^(offset/20) =  278.0
+   IRL1     offset  -0.74 dB  -> implied RMS(X0) = 255 / 10^(offset/20) =  277.6
+   with Frobenius-norm nerr and eq. (26) on one 8-bit image the offset is one constant >= 0 (RMS(X0) <= 255)
+metric-check (2): 48x44 test image, M/N = 0.5, DCT basis; constant 20 log10(255/RMS(X0)) = 4.81 dB
+   definition used for nerr / PSNR           IHT (K = M)          IRLS       IRLS-DR
+   Frobenius / eq.(26)                              4.81          4.81          4.81
+   Frobenius / eq.(26) on clipped image             5.54          4.83          4.84
+   spectral norm(ord=2) / eq.(26)                   1.29         -4.84         -4.51
+   nerr (Frobenius): IHT (K = M) 0.607  IRLS 0.082  IRLS-DR 0.092
